@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const islamicHref = "https://qurancoaching.com";
+const islamicHref = "https://qurancoaching.com/";
 
 export function Brand({ light = false }: { light?: boolean }) {
   return <a className={`brand${light ? " brand-light" : ""}`} href="#home" aria-label="Ummat IT House home"><span className="brand-mark"><span>U</span></span><span className="brand-copy"><strong>UMMAT</strong><small>IT HOUSE</small></span></a>;
