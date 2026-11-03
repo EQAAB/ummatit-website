@@ -7,21 +7,19 @@ const photos = {
   quran: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=600&q=80",
   laptop: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
   shop: "https://images.unsplash.com/photo-1773213075043-86954c638a98?auto=format&fit=crop&w=600&q=80",
-  // Web Development, Python Programming, UI/UX Design, Digital Marketing
   course: [
-    "photo-1498050108023-c5249f4df085", // laptop coding / web
-    "photo-1515879218367-8466d910aaa4", // python code on screen
-    "photo-1561070791-2526d30994b5", // design tools / UI UX
-    "photo-1460925895917-afdab827c52f", // analytics dashboard / marketing
+    "photo-1498050108023-c5249f4df085",
+    "photo-1515879218367-8466d910aaa4",
+    "photo-1561070791-2526d30994b5",
+    "photo-1460925895917-afdab827c52f",
   ],
-  // Clear Quran, Prayer Mat, Tasbeeh, Oud Attar, Calligraphy, Gift Set
   product: [
-    "photo-1609599006353-e629aaabfeae", // open Quran
-    "photo-1761958150507-7bcc80840cf9", // prayer mat
-    "photo-1752900385454-7876eec9c326", // wooden prayer beads
-    "photo-1598193681146-3835eeaea11f", // attar / perfume bottles
-    "photo-1773213075043-86954c638a98", // framed islamic calligraphy
-    "photo-1513201099705-a9746e1e201f", // wrapped gift
+    "photo-1609599006353-e629aaabfeae",
+    "photo-1761958150507-7bcc80840cf9",
+    "photo-1752900385454-7876eec9c326",
+    "photo-1598193681146-3835eeaea11f",
+    "photo-1773213075043-86954c638a98",
+    "photo-1513201099705-a9746e1e201f",
   ],
 };
 
@@ -34,34 +32,36 @@ export function Hero() {
       <div className="hero-content">
         <p className="eyebrow">Knowledge for a Brighter Dunya and Akhirah</p>
         <h1>
-          Learn Quran, Build IT Skills,
-          <br />
-          and Explore <span>Islamic Products</span>
+          Learn Quran, Build IT Skills
+          <br className="hero-break" />
+          and Explore <em>Islamic Products</em>
         </h1>
         <p className="hero-lede">
           A complete platform for modern IT skills and authentic Islamic products — all in one place.
         </p>
         <div className="hero-actions">
           <a className="button button-primary" href="#courses">
-            ▣ &nbsp; Start Learning <span>→</span>
+            <span aria-hidden="true">▣</span> Start Learning <span aria-hidden="true">→</span>
           </a>
           <a className="button button-secondary" href="#shop">
-            🛒 &nbsp; Visit Shop
+            <span aria-hidden="true">🛒</span> Visit Shop
           </a>
         </div>
         <div className="hero-trust">
           <span>
-            <b>♧</b> Qualified Teachers
+            <b aria-hidden="true">♧</b> Qualified Teachers
           </span>
           <span>
-            <b>◉</b> Flexible Learning
+            <b aria-hidden="true">◉</b> Flexible Learning
           </span>
           <span>
-            <b>✓</b> Trusted Products
+            <b aria-hidden="true">✓</b> Trusted Products
           </span>
         </div>
       </div>
-      <div className="hero-art" role="img" aria-label="Peaceful Islamic learning space" />
+      <div className="hero-art" role="img" aria-label="Peaceful Islamic learning space">
+        <p className="hero-caption">Knowledge · Faith · Growth</p>
+      </div>
     </section>
   );
 }
@@ -202,7 +202,7 @@ export function ProductsSection() {
               <h3>{product.title}</h3>
               <strong>{product.price}</strong>
               <a className="add-cart" href="#shop">
-                ＋ &nbsp; View Product
+                View Product
               </a>
             </div>
           </article>
@@ -245,6 +245,14 @@ export function Testimonials() {
 }
 
 export function Footer() {
+  const socials = [
+    { label: "Facebook", href: "#contact" },
+    { label: "Instagram", href: "#contact" },
+    { label: "YouTube", href: "#contact" },
+    { label: "LinkedIn", href: "#contact" },
+    { label: "Pinterest", href: "#contact" },
+  ];
+
   return (
     <footer className="footer" id="contact">
       <div className="footer-main">
@@ -287,8 +295,13 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Follow Us</h3>
-          <a href="#contact">Facebook · Instagram · YouTube</a>
-          <a href="#contact">LinkedIn · Pinterest</a>
+          <div className="footer-socials" aria-label="Social media">
+            {socials.map((item) => (
+              <a key={item.label} href={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </div>
           <h3 className="footer-subhead">Stay connected</h3>
           <span>Knowledge Today · A Better Tomorrow</span>
         </div>
