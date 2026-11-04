@@ -14,7 +14,6 @@ export default function ShoppingCartPage() {
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
   const [couponMessage, setCouponMessage] = useState("");
-  const [checkoutMessage, setCheckoutMessage] = useState("");
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = items.length ? 250 : 0;
   const total = Math.max(0, subtotal + shipping - discount);
@@ -55,8 +54,7 @@ export default function ShoppingCartPage() {
             <div className={styles.summaryRow}><span>Shipping</span><strong>{money(shipping)}</strong></div>
             {discount > 0 && <div className={styles.summaryRow}><span>Discount</span><strong>− {money(discount)}</strong></div>}
             <div className={styles.totalRow}><span>Total</span><strong>{money(total)}</strong></div>
-            <button type="button" className={styles.checkout} onClick={() => setCheckoutMessage("Checkout is not available yet. Your cart has been saved.")}>Proceed to Checkout <span>→</span></button>
-            {checkoutMessage && <p className={styles.message} role="status">{checkoutMessage}</p>}
+            <Link className={styles.checkout} href="/checkout">Proceed to Checkout <span>→</span></Link>
             <div className={styles.coupon}><h3>Have a Coupon Code?</h3><p>Enter your code to get a discount.</p><div className={styles.couponForm}><input value={coupon} onChange={(event) => setCoupon(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") applyCoupon(); }} aria-label="Coupon code" placeholder="Enter coupon code" /><button type="button" onClick={applyCoupon}>Apply</button></div>{couponMessage && <p className={styles.couponMessage} role="status">{couponMessage}</p>}</div>
           </div>
         </aside>
