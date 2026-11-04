@@ -28,6 +28,7 @@ export function Navbar() {
   const onCourses = pathname.startsWith("/courses");
   const onAbout = pathname === "/about";
   const onContact = pathname === "/contact";
+  const onShop = pathname.startsWith("/islamic-shop");
 
   return (
     <header className="site-header">
@@ -62,7 +63,12 @@ export function Navbar() {
           >
             IT Courses
           </a>
-          <a href="/#shop" onClick={close}>
+          <a
+            className={onShop ? "nav-active" : undefined}
+            aria-current={onShop ? "page" : undefined}
+            href="/islamic-shop"
+            onClick={close}
+          >
             Islamic Shop
           </a>
           <a
