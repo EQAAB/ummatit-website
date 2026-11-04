@@ -49,7 +49,18 @@ const values = ["Authenticity|Based on Islamic values", "Quality|In learning and
 export default function AboutPage() {
   return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
-      <div className={styles.heroInner}><p className={styles.breadcrumb}><Link href="/">⌂ &nbsp;Home</Link><span>›</span>About Us</p><h1>About <em>Us</em></h1><p className={styles.tagline}>Learn · Grow · Serve the Ummah</p><p className={styles.heroCopy}>Ummat IT House is a platform that combines Islamic learning, modern IT education, and authentic Islamic products to help individuals grow in faith, skills, and daily life.</p></div>
+      <div className={styles.heroInner}>
+        <p className={styles.breadcrumb}>
+          <Link href="/">Home</Link>
+          &nbsp; › &nbsp;About Us
+        </p>
+        <h1>
+          About <em>Us</em>
+        </h1>
+        <p className={styles.heroCopy}>
+          Ummat IT House is a platform that combines Islamic learning, modern IT education, and authentic Islamic products to help individuals grow in faith, skills, and daily life.
+        </p>
+      </div>
     </section>
 
     <section className={styles.missionVision}>

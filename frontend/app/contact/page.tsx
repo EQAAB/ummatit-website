@@ -40,7 +40,18 @@ export default function ContactPage() {
 
   return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
-      <div className={styles.heroInner}><p className={styles.breadcrumb}><Link href="/">⌂ &nbsp;Home</Link><span>›</span>Contact Us</p><h1>Contact <em>Us</em></h1><p>We’re here to help you. Get in touch with our team for any<br className={styles.desktopBreak}/> questions about our IT courses, Islamic products, or services.</p></div>
+      <div className={styles.heroInner}>
+        <p className={styles.breadcrumb}>
+          <Link href="/">Home</Link>
+          &nbsp; › &nbsp;Contact Us
+        </p>
+        <h1>
+          Contact <em>Us</em>
+        </h1>
+        <p className={styles.heroCopy}>
+          We’re here to help you. Get in touch with our team for any questions about our IT courses, Islamic products, or services.
+        </p>
+      </div>
     </section>
 
     <section className={styles.contactLayout} aria-label="Contact Ummat IT House">
