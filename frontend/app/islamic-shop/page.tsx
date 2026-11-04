@@ -5,7 +5,7 @@ import styles from "./shop.module.css";
 
 const categories = ["All Products", "Qurans & Books", "Prayer Mats", "Tasbeeh", "Attar & Perfumes", "Islamic Clothing", "Wall Art", "Gifts"];
 const products = [
-  { title: "Premium Prayer Mat", category: "Prayer Mats", description: "Soft, comfortable & durable prayer mat with elegant design.", price: 6999, rating: "4.9", reviews: 128, image: "photo-1609599006353-e629aaabfeae", badge: "Bestseller" },
+  { title: "Premium Prayer Mat", category: "Prayer Mats", description: "Soft, comfortable & durable prayer mat with elegant design.", price: 6999, rating: "4.9", reviews: 128, image: "https://urbanrugs-kw.com/cdn/shop/files/R-M-26_1.jpg?v=1761086810&width=823", badge: "Bestseller" },
   { title: "Wooden Tasbeeh (99 Beads)", category: "Tasbeeh", description: "High-quality wooden tasbeeh with smooth, natural beads.", price: 3599, rating: "4.8", reviews: 94, image: "photo-1603006905003-be475563bc59" },
   { title: "Islamic Books Set", category: "Qurans & Books", description: "A curated collection of essential Islamic books for every home.", price: 5299, rating: "4.9", reviews: 76, image: "photo-1544947950-fa07a98d237f", viewDetails: true },
   { title: "Attar - Oudh", category: "Attar & Perfumes", description: "Premium long-lasting Oudh attar with a rich, traditional fragrance.", price: 8499, rating: "4.7", reviews: 112, image: "photo-1594035910387-fea47794261f", badge: "Popular" },
