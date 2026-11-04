@@ -40,7 +40,7 @@ export function Hero() {
           A complete platform for modern IT skills and authentic Islamic products — all in one place.
         </p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#courses">
+          <a className="button button-primary" href="/courses">
             <span aria-hidden="true">▣</span> Start Learning <span aria-hidden="true">→</span>
           </a>
           <a className="button button-secondary" href="#shop">
@@ -79,7 +79,7 @@ export function CategoryCards() {
     {
       title: "IT Courses",
       desc: "Build in-demand skills with practical IT courses.",
-      link: "#courses",
+      link: "/courses",
       label: "Explore IT Courses",
       image: photos.laptop,
     },
@@ -155,7 +155,7 @@ export function CoursesSection() {
         icon="◧"
         title="Featured IT Courses"
         note="Gain practical skills for a successful career in the digital world."
-        href="#courses"
+        href="/courses"
         link="View All Courses"
       />
       <div className="course-grid">

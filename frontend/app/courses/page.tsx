@@ -2,8 +2,9 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
-
-import "./../globals.css";
+import { Footer } from "../components/footer";
+import { Navbar } from "../components/Navbar";
+import styles from "./courses.module.css";
 
 type Course = {
   id: number;
@@ -25,7 +26,7 @@ const courses: Course[] = [
     duration: "3 Months",
     price: 99,
     description: "Learn to build modern, responsive websites with HTML, CSS and JavaScript.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700"
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700",
   },
   {
     id: 2,
@@ -35,7 +36,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 79,
     description: "Master Python programming with practical projects.",
-    image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=700"
+    image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=700",
   },
   {
     id: 3,
@@ -45,7 +46,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 69,
     description: "Learn creative design with Photoshop and Illustrator.",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700"
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700",
   },
   {
     id: 4,
@@ -55,7 +56,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 79,
     description: "Learn SEO, social media, advertising and content marketing.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700",
   },
   {
     id: 5,
@@ -65,7 +66,7 @@ const courses: Course[] = [
     duration: "1 Month",
     price: 49,
     description: "Learn Word, Excel, PowerPoint and essential office skills.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700"
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700",
   },
   {
     id: 6,
@@ -75,7 +76,7 @@ const courses: Course[] = [
     duration: "1 Month",
     price: 39,
     description: "Learn computer fundamentals and internet skills.",
-    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700"
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700",
   },
   {
     id: 7,
@@ -85,7 +86,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 89,
     description: "Design modern and user-friendly web and mobile interfaces.",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700"
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700",
   },
   {
     id: 8,
@@ -95,7 +96,7 @@ const courses: Course[] = [
     duration: "1 Month",
     price: 59,
     description: "Analyze data, create reports and visualize insights.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700",
   },
   {
     id: 9,
@@ -105,7 +106,7 @@ const courses: Course[] = [
     duration: "1 Month",
     price: 49,
     description: "Learn practical skills to start your freelancing career.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700"
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700",
   },
   {
     id: 10,
@@ -115,7 +116,7 @@ const courses: Course[] = [
     duration: "3 Months",
     price: 89,
     description: "Understand Java programming and object-oriented concepts.",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=700"
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=700",
   },
   {
     id: 11,
@@ -125,7 +126,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 79,
     description: "Build interactive websites using modern JavaScript.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700"
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700",
   },
   {
     id: 12,
@@ -135,7 +136,7 @@ const courses: Course[] = [
     duration: "3 Months",
     price: 99,
     description: "Create responsive interfaces with HTML, CSS and JavaScript.",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700"
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700",
   },
   {
     id: 13,
@@ -145,7 +146,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 69,
     description: "Create professional websites using WordPress.",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700"
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700",
   },
   {
     id: 14,
@@ -155,7 +156,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 59,
     description: "Learn photo editing and creative image design.",
-    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=700"
+    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=700",
   },
   {
     id: 15,
@@ -165,7 +166,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 99,
     description: "Explore AI fundamentals and practical applications.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700"
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700",
   },
   {
     id: 16,
@@ -175,7 +176,7 @@ const courses: Course[] = [
     duration: "1 Month",
     price: 49,
     description: "Learn SEO techniques to improve website visibility.",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700"
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700",
   },
   {
     id: 17,
@@ -185,7 +186,7 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 69,
     description: "Learn formulas, charts and advanced spreadsheets.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700",
   },
   {
     id: 18,
@@ -195,11 +196,11 @@ const courses: Course[] = [
     duration: "2 Months",
     price: 79,
     description: "Design attractive and user-friendly mobile interfaces.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?w=700"
-  }
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?w=700",
+  },
 ];
 
-function Svg({ children, className = "w-[18px] h-[18px]" }: { children: React.ReactNode; className?: string }) {
+function Svg({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -216,16 +217,8 @@ function Svg({ children, className = "w-[18px] h-[18px]" }: { children: React.Re
   );
 }
 
-const GraduationIcon = ({ className }: { className?: string }) => (
-  <Svg className={className}>
-    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
-    <path d="M22 10v6" />
-    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
-  </Svg>
-);
-
-const SearchIcon = ({ className }: { className?: string }) => (
-  <Svg className={className}>
+const SearchIcon = () => (
+  <Svg>
     <circle cx="11" cy="11" r="8" />
     <path d="m21 21-4.3-4.3" />
   </Svg>
@@ -299,21 +292,6 @@ const BenefitIcons = {
     </Svg>
   ),
 };
-
-const CartIcon = ({ className }: { className?: string }) => (
-  <Svg className={className}>
-    <circle cx="8" cy="21" r="1" />
-    <circle cx="19" cy="21" r="1" />
-    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-  </Svg>
-);
-
-const UserIcon = ({ className }: { className?: string }) => (
-  <Svg className={className}>
-    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </Svg>
-);
 
 const categories = [
   {
@@ -404,7 +382,7 @@ const categories = [
         <circle cx="11" cy="11" r="2" />
       </Svg>
     ),
-  }
+  },
 ];
 
 export default function CoursesPage() {
@@ -412,23 +390,17 @@ export default function CoursesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("latest");
   const [currentPage, setCurrentPage] = useState(1);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const coursesPerPage = 9;
 
   const filteredCourses = useMemo(() => {
     const result = courses.filter((course) => {
-      const matchesCategory =
-        selectedCat === "All" ||
-        course.category === selectedCat;
-
+      const matchesCategory = selectedCat === "All" || course.category === selectedCat;
       const search = searchQuery.toLowerCase().trim();
-
       const matchesSearch =
         course.title.toLowerCase().includes(search) ||
         course.category.toLowerCase().includes(search) ||
         course.description.toLowerCase().includes(search);
-
       return matchesCategory && matchesSearch;
     });
 
@@ -445,16 +417,9 @@ export default function CoursesPage() {
     return result;
   }, [selectedCat, searchQuery, sortBy]);
 
-  const totalPages = Math.ceil(
-    filteredCourses.length / coursesPerPage
-  );
-
+  const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
   const startIndex = (currentPage - 1) * coursesPerPage;
-
-  const displayedCourses = filteredCourses.slice(
-    startIndex,
-    startIndex + coursesPerPage
-  );
+  const displayedCourses = filteredCourses.slice(startIndex, startIndex + coursesPerPage);
 
   const changeCategory = (category: string) => {
     setSelectedCat(category);
@@ -466,174 +431,56 @@ export default function CoursesPage() {
     setCurrentPage(1);
   };
 
+  const clearFilters = () => {
+    setSelectedCat("All");
+    setSearchQuery("");
+    setCurrentPage(1);
+    setSortBy("latest");
+  };
+
   const benefits = [
-    {
-      icon: BenefitIcons.instructor,
-      title: "Expert Instructors",
-      desc: "Learn from industry professionals"
-    },
-    {
-      icon: BenefitIcons.laptop,
-      title: "Practical Learning",
-      desc: "Hands-on, real-world projects"
-    },
-    {
-      icon: BenefitIcons.medal,
-      title: "Certificate of Completion",
-      desc: "Get a recognized certificate"
-    },
-    {
-      icon: BenefitIcons.pace,
-      title: "Learn at Your Pace",
-      desc: "Flexible and beginner-friendly"
-    }
+    { icon: BenefitIcons.instructor, title: "Expert Instructors", desc: "Learn from industry professionals" },
+    { icon: BenefitIcons.laptop, title: "Practical Learning", desc: "Hands-on, real-world projects" },
+    { icon: BenefitIcons.medal, title: "Certificate of Completion", desc: "Get a recognized certificate" },
+    { icon: BenefitIcons.pace, title: "Learn at Your Pace", desc: "Flexible and beginner-friendly" },
+  ];
+
+  const bottomBenefits = [
+    { icon: BenefitIcons.range, title: "Wide Range of Courses", desc: "From basic to advanced level" },
+    { icon: BenefitIcons.beginner, title: "Beginner Friendly", desc: "Start with no prior experience" },
+    { icon: BenefitIcons.book, title: "Practical & Hands-on", desc: "Real projects and examples" },
+    { icon: BenefitIcons.support, title: "Career Support", desc: "Guidance for jobs and freelancing" },
   ];
 
   return (
-    <main className="min-h-screen bg-[#fafaf8] text-gray-800">
-    {/* NAVBAR */}
+    <main className={styles.page}>
+      <Navbar />
 
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-[1450px] mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-[72px]">
-
-            <Link href="/" className="flex items-center gap-3 shrink-0 group">
-              <span className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0A6A4A] to-[#043D2D] text-white flex items-center justify-center shadow-md shadow-green-900/20 group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all">
-                <GraduationIcon className="w-6 h-6" />
-              </span>
-              <span>
-                <h2 className="font-serif text-xl font-bold text-[#064B35] leading-tight">
-                  Ummat IT House
-                </h2>
-                <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-gray-400">
-                  Islamic Learning • IT Skills • Islamic Products
-                </p>
-              </span>
-            </Link>
-
-            <nav className="hidden lg:flex items-center gap-7 text-[13px] font-semibold">
-              <Link href="/" className="hover:text-[#08734F]">Home</Link>
-              <Link href="#" className="hover:text-[#08734F]">Islamic Studies ↗</Link>
-              <Link href="/courses" className="text-[#07543D] border-b-2 border-[#07543D] py-3">
-                IT Courses
-              </Link>
-              <Link href="#" className="hover:text-[#08734F]">Islamic Shop</Link>
-              <Link href="#" className="hover:text-[#08734F]">About Us</Link>
-              <Link href="#" className="hover:text-[#08734F]">Contact</Link>
-            </nav>
-
-            <div className="hidden md:flex items-center gap-2.5">
-              <button
-                aria-label="Search courses"
-                title="Search courses"
-                onClick={() => document.getElementById("course-search")?.focus()}
-                className="w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:text-[#07543D] hover:border-[#07543D]/40 hover:bg-green-50 hover:shadow-sm active:scale-95 transition-all"
-              >
-                <SearchIcon className="w-[18px] h-[18px]" />
-              </button>
-
-              <button
-                aria-label="Shopping cart"
-                title="Cart"
-                className="relative w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:text-[#07543D] hover:border-[#07543D]/40 hover:bg-green-50 hover:shadow-sm active:scale-95 transition-all"
-              >
-                <CartIcon className="w-[18px] h-[18px]" />
-                <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#07543D] text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">
-                  0
-                </span>
-              </button>
-
-              <span className="w-px h-7 bg-gray-200 mx-1" aria-hidden="true" />
-
-              <Link
-                href="#"
-                className="flex items-center gap-2 text-[13px] font-bold text-[#064B35] px-3.5 py-2.5 rounded-lg hover:bg-green-50 hover:text-[#07543D] transition-colors"
-              >
-                <UserIcon className="w-[18px] h-[18px]" />
-                Login
-              </Link>
-
-              <Link
-                href="#"
-                className="bg-[#07543D] hover:bg-[#043D2D] text-white text-[13px] font-bold px-6 py-2.5 rounded-lg shadow-md shadow-green-900/20 hover:shadow-lg hover:-translate-y-px active:translate-y-0 transition-all"
-              >
-                Sign Up
-              </Link>
-            </div>
-
-            <button
-              className="lg:hidden text-2xl text-[#064B35] p-2"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation"
-              aria-expanded={menuOpen}
-            >
-              {menuOpen ? "✕" : "☰"}
-            </button>
-          </div>
-
-          {menuOpen && (
-            <nav className="lg:hidden flex flex-col gap-4 py-5 border-t text-sm font-semibold">
-              <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-              <Link href="#" onClick={() => setMenuOpen(false)}>Islamic Studies</Link>
-              <Link href="/courses" onClick={() => setMenuOpen(false)}>IT Courses</Link>
-              <Link href="#" onClick={() => setMenuOpen(false)}>Islamic Shop</Link>
-              <Link href="#" onClick={() => setMenuOpen(false)}>About Us</Link>
-              <Link href="#" onClick={() => setMenuOpen(false)}>Contact</Link>
-              <Link href="#" onClick={() => setMenuOpen(false)} className="bg-[#07543D] text-white text-center p-3 rounded-lg">
-                Sign Up
-              </Link>
-            </nav>
-          )}
-        </div>
-      </header>
-
-
-      {/* HERO BANNER */}
-
-      <section
-        className="relative bg-cover bg-center min-h-[190px] md:min-h-[220px] flex items-center"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1800')"
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003C2B] via-[#003C2B]/90 to-[#003C2B]/30"></div>
-
-        <div className="relative z-10 max-w-[1450px] w-full mx-auto px-6 lg:px-10 py-8">
-          <p className="text-xs text-green-100 mb-4">
-            Home&nbsp; › &nbsp;IT Courses
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
+          <p className={styles.breadcrumb}>
+            <Link href="/">Home</Link>
+            &nbsp; › &nbsp;IT Courses
           </p>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-3">
-            IT <span className="text-[#E7BD69]">Courses</span>
+          <h1>
+            IT <em>Courses</em>
           </h1>
-          <p className="text-sm md:text-base text-gray-100 max-w-[480px] leading-relaxed">
-            Build in-demand digital skills with practical,
-            step-by-step courses. Learn from experienced
+          <p className={styles.heroCopy}>
+            Build in-demand digital skills with practical, step-by-step courses. Learn from experienced
             instructors and grow your career with confidence.
           </p>
         </div>
       </section>
 
-
-      {/* TOP BENEFITS */}
-
-      <section className="bg-[#FAF7EF] border-b border-[#eee8d9]">
-        <div className="max-w-[1450px] mx-auto px-5 lg:px-10 py-5">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-3 lg:border-r last:border-r-0 border-[#e5dfd2] px-2"
-              >
-                <span className="w-11 h-11 rounded-full bg-[#07543D]/10 text-[#07543D] flex items-center justify-center shrink-0 [&_svg]:w-5 [&_svg]:h-5">
-                  {benefit.icon}
-                </span>
+      <section className={styles.benefitsTop}>
+        <div className={styles.benefitsInner}>
+          <div className={styles.benefitsGrid}>
+            {benefits.map((benefit) => (
+              <div key={benefit.title} className={styles.benefitItem}>
+                <span className={styles.benefitIcon}>{benefit.icon}</span>
                 <div>
-                  <h3 className="text-xs md:text-sm font-bold text-gray-900">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">
-                    {benefit.desc}
-                  </p>
+                  <h3>{benefit.title}</h3>
+                  <p>{benefit.desc}</p>
                 </div>
               </div>
             ))}
@@ -641,21 +488,14 @@ export default function CoursesPage() {
         </div>
       </section>
 
-
-      {/* MAIN COURSE LISTING */}
-
-      <section className="max-w-[1450px] mx-auto px-4 lg:px-8 py-8">
-        <div className="flex flex-col lg:flex-row gap-7">
-
-          {/* LEFT SIDEBAR */}
-
-          <aside className="w-full lg:w-[245px] shrink-0 space-y-5">
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-
-              <div className="bg-gradient-to-r from-[#07543D] to-[#0A6A4A] text-white px-5 py-4">
-                <h2 className="font-serif text-lg font-bold flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center shrink-0">
-                    <Svg className="w-[18px] h-[18px]">
+      <section className={styles.listing}>
+        <div className={styles.listingRow}>
+          <aside className={styles.sidebar}>
+            <div className={styles.catCard}>
+              <div className={styles.catHead}>
+                <h2>
+                  <span className={styles.catHeadIcon}>
+                    <Svg className={styles.iconMd}>
                       <rect x="3" y="3" width="7" height="7" rx="1.5" />
                       <rect x="14" y="3" width="7" height="7" rx="1.5" />
                       <rect x="3" y="14" width="7" height="7" rx="1.5" />
@@ -666,41 +506,22 @@ export default function CoursesPage() {
                 </h2>
               </div>
 
-              <div className="p-3">
+              <div className={styles.catList}>
                 {categories.map((category) => {
                   const isActive = selectedCat === category.value;
                   return (
                     <button
                       key={category.value}
+                      type="button"
                       onClick={() => changeCategory(category.value)}
                       aria-pressed={isActive}
-                      className={`group w-full flex items-center justify-between gap-2 px-3.5 py-3 text-left text-[13px] border-b border-gray-100 last:border-0 rounded-lg transition-all duration-200 ${
-                        isActive
-                          ? "bg-gradient-to-r from-[#07543D] to-[#0A6A4A] text-white font-bold shadow-md shadow-green-900/20"
-                          : "text-gray-700 hover:bg-green-50/80 hover:pl-4"
-                      }`}
+                      className={`${styles.catBtn} ${isActive ? styles.catBtnActive : ""}`}
                     >
-                      <span className="flex items-center gap-3">
-                        <span
-                          className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                            isActive
-                              ? "bg-white/15 text-[#E7BD69]"
-                              : "bg-[#07543D]/8 text-[#07543D] group-hover:bg-[#07543D]/15"
-                          }`}
-                        >
-                          {category.icon}
-                        </span>
+                      <span className={styles.catBtnLabel}>
+                        <span className={styles.catIcon}>{category.icon}</span>
                         {category.name}
                       </span>
-
-                      <span
-                        className={`transition-all ${
-                          isActive
-                            ? "text-[#E7BD69] translate-x-0 opacity-100"
-                            : "text-gray-300 -translate-x-1 opacity-0 group-hover:opacity-100"
-                        }`}
-                        aria-hidden="true"
-                      >
+                      <span className={styles.catArrow} aria-hidden="true">
                         ›
                       </span>
                     </button>
@@ -709,46 +530,29 @@ export default function CoursesPage() {
               </div>
             </div>
 
-
-            {/* GET CERTIFIED CARD */}
-
-            <div className="relative overflow-hidden rounded-xl border border-[#e9dfc7] bg-gradient-to-br from-[#FFFDF7] to-[#F1E5C6] p-5 min-h-[150px]">
-              <div className="absolute -bottom-8 -right-7 w-28 h-28 rounded-full bg-[#07543D]"></div>
-
-              <div className="relative z-10">
-                <span className="w-11 h-11 rounded-full bg-[#A47B32]/15 text-[#A47B32] flex items-center justify-center">
-                  {BenefitIcons.badge}
-                </span>
-                <h3 className="font-serif text-lg font-bold text-[#064B35] mt-2.5">
-                  Get Certified
-                </h3>
-                <p className="text-xs text-gray-600 mt-1 max-w-[170px] leading-relaxed">
-                  Boost your career with industry-recognized certificates.
-                </p>
+            <div className={styles.certCard}>
+              <div className={styles.certBlob} aria-hidden="true" />
+              <div className={styles.certContent}>
+                <span className={styles.certIcon}>{BenefitIcons.badge}</span>
+                <h3>Get Certified</h3>
+                <p>Boost your career with industry-recognized certificates.</p>
               </div>
             </div>
           </aside>
 
-
-          {/* RIGHT COURSE AREA */}
-
-          <div className="flex-1 min-w-0">
-
-            {/* SEARCH AND SORT */}
-
-            <div className="flex flex-col md:flex-row gap-3 justify-between mb-5">
-              <div className="relative flex-1">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl text-[#07543D]">
+          <div className={styles.mainCol}>
+            <div className={styles.toolbar}>
+              <div className={styles.searchWrap}>
+                <span className={styles.searchIcon} aria-hidden="true">
                   ⌕
                 </span>
-
                 <input
                   id="course-search"
                   type="text"
                   value={searchQuery}
                   onChange={(e) => changeSearch(e.target.value)}
                   placeholder="Search IT courses (e.g. Web Development, Python, Graphic Design...)"
-                  className="w-full h-11 pl-11 pr-4 border border-gray-200 rounded-lg bg-white text-sm outline-none focus:border-[#07543D] focus:ring-2 focus:ring-green-100"
+                  className={styles.searchInput}
                 />
               </div>
 
@@ -758,7 +562,7 @@ export default function CoursesPage() {
                   setSortBy(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="h-11 px-4 border border-gray-200 rounded-lg bg-white text-sm font-semibold outline-none focus:border-[#07543D] min-w-[180px]"
+                className={styles.sortSelect}
                 aria-label="Sort courses"
               >
                 <option value="latest">Sort By: Latest</option>
@@ -768,88 +572,46 @@ export default function CoursesPage() {
               </select>
             </div>
 
-
-            {/* RESULTS COUNT */}
-
-            <div className="flex justify-between items-center mb-4">
-              <p className="text-xs md:text-sm text-gray-500">
+            <div className={styles.resultsBar}>
+              <p>
                 Showing{" "}
-                <strong className="text-[#064B35] font-extrabold">
+                <strong>
                   {filteredCourses.length === 0 ? 0 : startIndex + 1}
                   {" - "}
                   {Math.min(startIndex + coursesPerPage, filteredCourses.length)}
-                </strong>
-                {" "}of{" "}
-                <strong className="text-[#064B35] font-extrabold">
-                  {filteredCourses.length}
-                </strong>
-                {" "}
-                <span className="font-semibold text-gray-600 uppercase tracking-wide text-[11px]">Courses</span>
+                </strong>{" "}
+                of <strong>{filteredCourses.length}</strong>{" "}
+                <span className={styles.resultsLabel}>Courses</span>
               </p>
-
-              <button
-                onClick={() => {
-                  setSelectedCat("All");
-                  setSearchQuery("");
-                  setCurrentPage(1);
-                  setSortBy("latest");
-                }}
-                className="text-xs text-[#07543D] font-semibold hover:underline"
-              >
+              <button type="button" onClick={clearFilters} className={styles.clearBtn}>
                 Clear Filters
               </button>
             </div>
 
-
-            {/* COURSE CARDS */}
-
             {displayedCourses.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-
+              <div className={styles.courseGrid}>
                 {displayedCourses.map((course) => (
-                  <article
-                    key={course.id}
-                    className="group bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#07543D]/30 transition-all duration-300 flex flex-col"
-                  >
-
-                    {/* COURSE IMAGE */}
-
-                    <div className="relative h-[150px] overflow-hidden bg-gray-100">
-                      <img
-                        src={course.image}
-                        alt={course.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-
-                      <span className="absolute bottom-3 left-3 bg-blue-600/95 text-white text-[10px] font-bold tracking-wide px-3 py-1.5 rounded-full shadow-lg">
-                        {course.category}
-                      </span>
+                  <article key={course.id} className={styles.courseCard}>
+                    <div className={styles.courseImage}>
+                      <img src={course.image} alt={course.title} />
+                      <span className={styles.categoryBadge}>{course.category}</span>
                     </div>
 
+                    <div className={styles.courseBody}>
+                      <h3>{course.title}</h3>
+                      <p>{course.description}</p>
 
-                    {/* COURSE INFORMATION */}
-
-                    <div className="p-4 flex flex-col flex-1">
-                      <h3 className="font-extrabold text-[15px] tracking-tight text-gray-900 leading-snug mb-1.5 group-hover:text-[#07543D] transition-colors">
-                        {course.title}
-                      </h3>
-
-                      <p className="text-[13px] text-gray-600 leading-relaxed min-h-[42px]">
-                        {course.description}
-                      </p>
-
-                      <div className="flex items-center justify-between gap-2 border-b border-gray-100 py-3 mt-auto">
-                        <span className="flex items-center gap-1.5 text-[10.5px] font-semibold text-gray-600">
-                          <Svg className="w-3.5 h-3.5 text-[#A47B32]">
+                      <div className={styles.metaRow}>
+                        <span className={styles.metaItem}>
+                          <Svg className={styles.iconSm}>
                             <line x1="12" y1="20" x2="12" y2="10" />
                             <line x1="18" y1="20" x2="18" y2="4" />
                             <line x1="6" y1="20" x2="6" y2="16" />
                           </Svg>
                           {course.level}
                         </span>
-
-                        <span className="flex items-center gap-1.5 text-[10.5px] font-semibold text-gray-600 whitespace-nowrap">
-                          <Svg className="w-3.5 h-3.5 text-[#A47B32]">
+                        <span className={styles.metaItem}>
+                          <Svg className={styles.iconSm}>
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                           </Svg>
@@ -857,18 +619,14 @@ export default function CoursesPage() {
                         </span>
                       </div>
 
-                      <div className="flex items-center justify-between pt-3.5">
-                        <p className="text-xl font-extrabold tracking-tight text-[#07543D]">
-                          <span className="text-sm font-bold text-[#A47B32]">$</span>
+                      <div className={styles.priceRow}>
+                        <p className={styles.price}>
+                          <span className={styles.priceCurrency}>$</span>
                           {course.price}
                         </p>
-
-                        <Link
-                          href={`/courses/${course.id}`}
-                          className="group/btn bg-[#07543D] hover:bg-[#043D2D] text-white text-[11px] font-bold px-4 py-2.5 rounded-lg flex items-center gap-2 shadow-sm hover:shadow-md transition-all"
-                        >
+                        <Link href={`/courses/${course.id}`} className={styles.detailsBtn}>
                           View Details
-                          <span className="transition-transform group-hover/btn:translate-x-0.5" aria-hidden="true">→</span>
+                          <span aria-hidden="true">→</span>
                         </Link>
                       </div>
                     </div>
@@ -876,327 +634,81 @@ export default function CoursesPage() {
                 ))}
               </div>
             ) : (
-              <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
-                <span className="w-16 h-16 rounded-full bg-green-50 text-[#07543D] flex items-center justify-center mx-auto [&_svg]:w-7 [&_svg]:h-7">
+              <div className={styles.emptyState}>
+                <span className={styles.emptyIcon}>
                   <SearchIcon />
                 </span>
-                <h3 className="font-extrabold text-lg text-gray-900 mt-4">
-                  No Courses Found
-                </h3>
-                <p className="text-sm text-gray-500 mt-2">
-                  Try another search or select a different category.
-                </p>
-
+                <h3>No Courses Found</h3>
+                <p>Try another search or select a different category.</p>
                 <button
+                  type="button"
                   onClick={() => {
                     setSelectedCat("All");
                     setSearchQuery("");
                     setCurrentPage(1);
                   }}
-                  className="mt-5 bg-[#07543D] text-white px-5 py-2 rounded-lg text-sm"
+                  className={styles.emptyBtn}
                 >
                   View All Courses
                 </button>
               </div>
             )}
-            {/* PAGINATION */}
 
             {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-8 flex-wrap">
-
+              <div className={styles.pagination}>
                 <button
+                  type="button"
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
-                  className="w-9 h-9 rounded-lg border border-gray-200 hover:bg-green-50 disabled:opacity-30"
+                  className={styles.pageBtn}
                   aria-label="Previous page"
                 >
                   ‹
                 </button>
 
-                {Array.from(
-                  { length: totalPages },
-                  (_, index) => index + 1
-                ).map((page) => (
+                {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
                   <button
                     key={page}
+                    type="button"
                     onClick={() => setCurrentPage(page)}
-                    className={`w-9 h-9 rounded-lg text-sm font-semibold transition ${
-                      currentPage === page
-                        ? "bg-[#07543D] text-white shadow"
-                        : "border border-gray-200 hover:bg-green-50 text-gray-700"
-                    }`}
+                    className={currentPage === page ? styles.pageBtnActive : styles.pageBtn}
                   >
                     {page}
                   </button>
                 ))}
 
                 <button
+                  type="button"
                   onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages}
-                  className="w-9 h-9 rounded-lg border border-gray-200 hover:bg-green-50 disabled:opacity-30"
+                  className={styles.pageBtn}
                   aria-label="Next page"
                 >
                   ›
                 </button>
-
               </div>
             )}
-
           </div>
         </div>
       </section>
 
-
-      {/* BOTTOM BENEFITS */}
-
-      <section className="bg-[#FAF7EF] border-y border-[#eee8d9] mt-5">
-        <div className="max-w-[1450px] mx-auto px-5 lg:px-10 py-6">
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-
-            {[
-              {
-                icon: BenefitIcons.range,
-                title: "Wide Range of Courses",
-                desc: "From basic to advanced level"
-              },
-              {
-                icon: BenefitIcons.beginner,
-                title: "Beginner Friendly",
-                desc: "Start with no prior experience"
-              },
-              {
-                icon: BenefitIcons.book,
-                title: "Practical & Hands-on",
-                desc: "Real projects and examples"
-              },
-              {
-                icon: BenefitIcons.support,
-                title: "Career Support",
-                desc: "Guidance for jobs and freelancing"
-              }
-            ].map((item, index) => (
-
-              <div
-                key={index}
-                className="flex items-center justify-center gap-3"
-              >
-                <span className="w-11 h-11 rounded-full bg-white shadow-sm text-[#07543D] flex items-center justify-center shrink-0 [&_svg]:w-5 [&_svg]:h-5">
-                  {item.icon}
-                </span>
-
+      <section className={styles.benefitsBottom}>
+        <div className={styles.benefitsInner}>
+          <div className={styles.benefitsGrid}>
+            {bottomBenefits.map((item) => (
+              <div key={item.title} className={styles.benefitItem}>
+                <span className={styles.benefitIconLight}>{item.icon}</span>
                 <div>
-                  <h3 className="text-xs md:text-sm font-bold text-gray-900">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">
-                    {item.desc}
-                  </p>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
               </div>
-
             ))}
-
           </div>
         </div>
       </section>
 
-
-      {/* FOOTER */}
-
-      <footer className="bg-[#003B2C] text-white">
-
-        <div className="max-w-[1450px] mx-auto px-6 lg:px-10 py-10">
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-
-            {/* LOGO AND DESCRIPTION */}
-
-            <div className="lg:col-span-1">
-
-              <Link href="/" className="flex items-center gap-3 mb-4">
-
-                <span className="w-12 h-12 rounded-xl bg-white/10 border border-white/15 text-[#E6C16C] flex items-center justify-center shrink-0">
-                  <GraduationIcon className="w-7 h-7" />
-                </span>
-
-                <div>
-                  <h2 className="font-serif text-xl font-bold">
-                    Ummat IT House
-                  </h2>
-
-                  <p className="text-[9px] text-green-100">
-                    Islamic Learning • IT Skills • Islamic Products
-                  </p>
-                </div>
-
-              </Link>
-
-              <p className="text-xs text-green-100 leading-relaxed">
-                An all-in-one platform for Islamic learning,
-                modern IT skills and authentic Islamic products.
-                Learn, grow and stay connected to your Deen.
-              </p>
-
-            </div>
-
-
-            {/* QUICK LINKS */}
-
-            <div>
-              <h3 className="font-bold text-base mb-4">
-                Quick Links
-              </h3>
-
-              <ul className="space-y-2 text-xs text-green-100">
-
-                <li>
-                  <Link href="/" className="hover:text-[#E6C16C]">
-                    Home
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    Islamic Studies ↗
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/courses" className="hover:text-[#E6C16C]">
-                    IT Courses
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    Islamic Shop
-                  </Link>
-                </li>
-
-              </ul>
-            </div>
-
-
-            {/* USEFUL LINKS */}
-
-            <div>
-              <h3 className="font-bold text-base mb-4">
-                Useful Links
-              </h3>
-
-              <ul className="space-y-2 text-xs text-green-100">
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    About Us
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    Contact Us
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    FAQs
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" className="hover:text-[#E6C16C]">
-                    Privacy Policy
-                  </Link>
-                </li>
-
-              </ul>
-            </div>
-
-
-            {/* CONTACT */}
-
-            <div>
-              <h3 className="font-bold text-base mb-4">
-                Contact Us
-              </h3>
-
-              <ul className="space-y-3 text-xs text-green-100">
-
-                <li>
-                  ☎ &nbsp; +92 300 1234567
-                </li>
-
-                <li>
-                  ✉ &nbsp; support@ummatithouse.com
-                </li>
-
-                <li>
-                  ⌖ &nbsp; Lahore, Pakistan
-                </li>
-
-              </ul>
-            </div>
-
-
-            {/* SOCIAL MEDIA */}
-
-            <div>
-              <h3 className="font-bold text-base mb-4">
-                Follow Us
-              </h3>
-
-              <div className="flex gap-2">
-
-                {[
-                  { name: "f", color: "bg-blue-600" },
-                  { name: "▶", color: "bg-red-600" },
-                  { name: "◎", color: "bg-pink-600" },
-                  { name: "in", color: "bg-blue-700" }
-                ].map((social, index) => (
-
-                  <a
-                    href="#"
-                    key={index}
-                    aria-label={`Social media ${social.name}`}
-                    className={`${social.color} w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold hover:scale-110 transition`}
-                  >
-                    {social.name}
-                  </a>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* COPYRIGHT */}
-
-        <div className="border-t border-white/20">
-
-          <div className="max-w-[1450px] mx-auto px-6 lg:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-green-100">
-
-            <p>
-              © 2026 Ummat IT House. All Rights Reserved.
-            </p>
-
-            <p className="text-[#E6C16C]">
-              Learn &nbsp; | &nbsp; Grow &nbsp; | &nbsp; Earn &nbsp; | &nbsp; Serve the Ummah
-            </p>
-
-          </div>
-
-        </div>
-
-      </footer>
-
+      <Footer />
     </main>
   );
 }
