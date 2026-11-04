@@ -1,4 +1,3 @@
-import { Navbar } from "../components/Navbar";
 import styles from "./about.module.css";
 import type { Metadata } from "next";
 
@@ -46,21 +45,8 @@ const benefits = [
 ];
 const values = ["Authenticity|Based on Islamic values", "Quality|In learning and products", "Accessibility|For everyone, everywhere", "Integrity|Honest and transparent", "Community|Serving the Ummah"];
 
-function AboutFooter() {
-  return <footer className={styles.footer}>
-    <div className={styles.footerInner}>
-      <div className={styles.footerBrand}><a className={styles.brand} href="/"><span className={styles.brandMark}>U</span><span><strong>Ummat IT House</strong><small>Islamic Learning · IT Skills · Islamic Products</small></span></a><p>A trusted platform for Islamic learning, modern IT education, and authentic Islamic products. Learn, grow and serve the Ummah with us.</p></div>
-      <div><h3>Quick Links</h3><a href="/">Home</a><a href="https://qurancoaching.com/">Islamic Studies ↗</a><a href="/#courses">IT Courses</a><a href="/#shop">Islamic Shop</a><a href="/about">About Us</a></div>
-      <div><h3>Useful Links</h3><a href="/#contact">FAQs</a><a href="/#contact">Privacy Policy</a><a href="/#contact">Terms &amp; Conditions</a><a href="/#contact">Refund Policy</a><a href="/#contact">Shipping Policy</a></div>
-      <div><h3>Contact Us</h3><a href="tel:+923338130214">☎ &nbsp;+92 333 8130214</a><a href="mailto:support@ummatithouse.com">✉ &nbsp;support@ummatithouse.com</a><a href="https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" target="_blank" rel="noopener noreferrer">⌖ &nbsp;Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan</a></div>
-      <div><h3>Follow Us</h3><div className={styles.socials}><a href="/#contact" aria-label="Facebook">f</a><a href="/#contact" aria-label="YouTube">▶</a><a href="/#contact" aria-label="Instagram">◎</a><a href="/#contact" aria-label="LinkedIn">in</a></div></div>
-    </div>
-    <div className={styles.footerBottom}><span>© 2026 Ummat IT House. All Rights Reserved.</span><strong>Learn&nbsp;&nbsp; | &nbsp;&nbsp;Grow&nbsp;&nbsp; | &nbsp;&nbsp;Earn&nbsp;&nbsp; | &nbsp;&nbsp;Serve the Ummah</strong></div>
-  </footer>;
-}
-
 export default function AboutPage() {
-  return <><Navbar/><main className={styles.page}>
+  return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
       <div className={styles.heroInner}><p className={styles.breadcrumb}><a href="/">⌂ &nbsp;Home</a><span>›</span>About Us</p><h1>About <em>Us</em></h1><p className={styles.tagline}>Learn · Grow · Serve the Ummah</p><p className={styles.heroCopy}>Ummat IT House is a platform that combines Islamic learning, modern IT education, and authentic Islamic products to help individuals grow in faith, skills, and daily life.</p></div>
     </section>
@@ -85,5 +71,5 @@ export default function AboutPage() {
       <article className={styles.valuesCard}><img src={serviceImages.products} alt="Islamic books and lantern" loading="lazy"/><div className={styles.valuesContent}><h2>Our Core Values</h2><ul>{values.map((value)=><li key={value}><span>✓</span><p><strong>{value.split("|")[0]}</strong> ({value.split("|")[1]})</p></li>)}</ul></div></article>
       <div className={styles.stats}>{[{icon:"people",number:"10,000+",label:"Learners",sub:"(Combined Platforms)"},{icon:"layers",number:"50+",label:"IT Courses"},{icon:"bag",number:"500+",label:"Islamic Products"},{icon:"globe",number:"Global",label:"Online Learning",sub:"Community"}].map((stat)=><article key={stat.number}><Icon name={stat.icon}/><strong>{stat.number}</strong><span>{stat.label}</span>{stat.sub&&<small>{stat.sub}</small>}</article>)}</div>
     </section>
-  </main><AboutFooter/></>;
+  </main>;
 }

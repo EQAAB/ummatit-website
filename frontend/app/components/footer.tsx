@@ -1,11 +1,19 @@
 const islamicHref = "https://qurancoaching.com/";
 
+const socials = [
+  { label: "Facebook", href: "https://facebook.com/" },
+  { label: "Instagram", href: "https://instagram.com/" },
+  { label: "YouTube", href: "https://youtube.com/" },
+  { label: "LinkedIn", href: "https://linkedin.com/" },
+  { label: "Pinterest", href: "https://pinterest.com/" },
+];
+
 export function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer" id="site-footer">
       <div className="footer-main">
         <div className="footer-brand-block">
-          <a className="brand brand-footer" href="#home">
+          <a className="brand brand-footer" href="/">
             <span className="brand-mark">
               <span>U</span>
             </span>
@@ -21,16 +29,17 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Quick Links</h3>
-          <a href="#home">Home</a>
+          <a href="/">Home</a>
           <a href={islamicHref} target="_blank" rel="noopener noreferrer">
             Islamic Studies
             <span className="external" aria-hidden="true">
               ↗
             </span>
           </a>
-          <a href="#courses">IT Courses</a>
-          <a href="#shop">Islamic Shop</a>
-          <a href="#about">About Us</a>
+          <a href="/courses">IT Courses</a>
+          <a href="/#shop">Islamic Shop</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact Us</a>
         </div>
         <div className="footer-col">
           <h3>Contact Us</h3>
@@ -49,8 +58,13 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Follow Us</h3>
-          <a href="#contact">Facebook · Instagram · YouTube</a>
-          <a href="#contact">LinkedIn · Pinterest</a>
+          <div className="footer-socials" aria-label="Social media">
+            {socials.map((item) => (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.label}
+              </a>
+            ))}
+          </div>
           <h3 className="footer-subhead">Stay connected</h3>
           <span>Knowledge Today · A Better Tomorrow</span>
         </div>

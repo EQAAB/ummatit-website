@@ -2,8 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
-import { Footer } from "../components/footer";
-import { Navbar } from "../components/Navbar";
 import styles from "./courses.module.css";
 
 type Course = {
@@ -458,8 +456,6 @@ export default function CoursesPage() {
 
   return (
     <main className={styles.page}>
-      <Navbar />
-
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.breadcrumb}>
@@ -711,8 +707,6 @@ export default function CoursesPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

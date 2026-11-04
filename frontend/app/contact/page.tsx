@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Navbar } from "../components/Navbar";
 import { ContactForm } from "./ContactForm";
 import styles from "./contact.module.css";
 
@@ -24,19 +23,6 @@ function Icon({ name }: { name: string }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name] ?? paths.mail}</svg>;
 }
 
-function ContactFooter() {
-  return <footer className={styles.footer}>
-    <div className={styles.footerGrid}>
-      <div className={styles.footerBrand}><a className={styles.footerLogo} href="/"><span>U</span><strong>Ummat IT House<small>Islamic Learning · IT Skills · Islamic Products</small></strong></a><p>A trusted platform for Islamic learning, modern IT education, and authentic Islamic products. Learn, grow and serve the Ummah with us.</p></div>
-      <div className={styles.footerColumn}><h2>Quick Links</h2><a href="/">Home</a><a href="https://qurancoaching.com/" target="_blank" rel="noopener noreferrer">Islamic Studies ↗</a><a href="/#courses">IT Courses</a><a href="/#shop">Islamic Shop</a><a href="/about">About Us</a><a href="/contact">Contact</a></div>
-      <div className={styles.footerColumn}><h2>Useful Links</h2><a href="mailto:support@ummatithouse.com?subject=FAQs">FAQs</a><a href="mailto:support@ummatithouse.com?subject=Privacy%20Policy">Privacy Policy</a><a href="mailto:support@ummatithouse.com?subject=Terms%20and%20Conditions">Terms &amp; Conditions</a><a href="mailto:support@ummatithouse.com?subject=Refund%20Policy">Refund Policy</a><a href="mailto:support@ummatithouse.com?subject=Shipping%20Policy">Shipping Policy</a></div>
-      <div className={styles.footerColumn}><h2>Contact Us</h2><a href="tel:+923338130214">☎ &nbsp;+92 333 8130214</a><a href="mailto:support@ummatithouse.com">✉ &nbsp;support@ummatithouse.com</a><a href="https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" target="_blank" rel="noopener noreferrer">⌖ &nbsp;Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan</a></div>
-      <div className={styles.footerColumn}><h2>Follow Us</h2><div className={styles.socials}><a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a><a href="https://youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a><a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a><a href="https://linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div></div>
-    </div>
-    <div className={styles.footerBottom}><span>© 2026 Ummat IT House. All Rights Reserved.</span><strong>Learn &nbsp; | &nbsp; Grow &nbsp; | &nbsp; Earn &nbsp; | &nbsp; Serve the Ummah</strong></div>
-  </footer>;
-}
-
 export default function ContactPage() {
   const contactMethods = [
     { icon: "mail", title: "Email Us", detail: "support@ummatithouse.com", href: "mailto:support@ummatithouse.com" },
@@ -51,7 +37,7 @@ export default function ContactPage() {
     { icon: "book", title: "Course Guidance", description: "Need help choosing a course?", action: "Explore Courses", href: "/#courses", external: false },
   ];
 
-  return <><Navbar/><main className={styles.page}>
+  return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
       <div className={styles.heroInner}><p className={styles.breadcrumb}><a href="/">⌂ &nbsp;Home</a><span>›</span>Contact Us</p><h1>Contact <em>Us</em></h1><p>We’re here to help you. Get in touch with our team for any<br className={styles.desktopBreak}/> questions about our IT courses, Islamic products, or services.</p></div>
     </section>
@@ -75,5 +61,5 @@ export default function ContactPage() {
       <div className={styles.sectionTitle}><h2>Other Ways to Get in Touch</h2><span><i/>◇<i/></span></div>
       <div className={styles.waysGrid}>{ways.map((item)=><article className={styles.wayCard} key={item.title}><span className={styles.wayIcon}><Icon name={item.icon}/></span><div className={styles.wayContent}><h3>{item.title}</h3><p>{item.description}</p><a href={item.href} {...(item.external?{target:"_blank",rel:"noopener noreferrer"}:{})}>{item.action}<span aria-hidden="true">↗</span></a></div></article>)}</div>
     </section>
-  </main><ContactFooter/></>;
+  </main>;
 }

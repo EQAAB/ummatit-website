@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Footer } from "./components/Footer";
+import { Navbar } from "./components/Navbar";
 import "./globals.css";
 
 const sans = Source_Sans_3({
@@ -26,7 +28,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
