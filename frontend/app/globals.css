@@ -136,6 +136,10 @@ main { overflow-x: clip; }
   font-weight: var(--weight-medium);
 }
 .nav-links > a:hover { color: var(--gold); }
+.nav-cart { position: relative; display: inline-grid !important; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; color: var(--green); transition: background .2s ease, border-color .2s ease; }
+.nav-cart:hover { background: #f5f7f1; border-color: #c8d4c8; }
+.nav-cart svg { width: 22px; height: 22px; }
+.nav-cart-count { position: absolute; top: -3px; right: -3px; min-width: 19px; height: 19px; padding: 0 4px; border: 2px solid #fffefa; border-radius: 999px; display: inline-grid; place-items: center; background: var(--green); color: white; font-size: 10px; font-weight: var(--weight-semibold); line-height: 1; }
 .nav-links > a:focus-visible,
 .button:focus-visible,
 .card-action:focus-visible,
@@ -961,6 +965,8 @@ main { overflow-x: clip; }
     display: flex;
     align-items: center;
   }
+  .nav-links .nav-cart { width: 44px; height: 44px; margin: 4px 0; }
+  .nav-links .nav-cart-count { top: 0; right: 0; }
   .nav-links .nav-cta {
     text-align: center;
     margin-top: 8px;
