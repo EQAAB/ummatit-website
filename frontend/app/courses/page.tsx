@@ -24,7 +24,7 @@ const courses: Course[] = [
     category: "Web Development",
     level: "Beginner to Advanced",
     duration: "3 Months",
-    price: 99,
+    price: 12500,
     description: "Learn to build modern, responsive websites with HTML, CSS and JavaScript.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700",
   },
@@ -34,7 +34,7 @@ const courses: Course[] = [
     category: "Programming",
     level: "Beginner",
     duration: "2 Months",
-    price: 79,
+    price: 10000,
     description: "Master Python programming with practical projects.",
     image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=700",
   },
@@ -44,7 +44,7 @@ const courses: Course[] = [
     category: "Graphic Design",
     level: "Beginner to Intermediate",
     duration: "2 Months",
-    price: 69,
+    price: 9000,
     description: "Learn creative design with Photoshop and Illustrator.",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700",
   },
@@ -54,7 +54,7 @@ const courses: Course[] = [
     category: "Digital Marketing",
     level: "Beginner",
     duration: "2 Months",
-    price: 79,
+    price: 8500,
     description: "Learn SEO, social media, advertising and content marketing.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700",
   },
@@ -64,7 +64,7 @@ const courses: Course[] = [
     category: "Microsoft Office",
     level: "Beginner",
     duration: "1 Month",
-    price: 49,
+    price: 6500,
     description: "Learn Word, Excel, PowerPoint and essential office skills.",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700",
   },
@@ -74,7 +74,7 @@ const courses: Course[] = [
     category: "Computer Basics",
     level: "Beginner",
     duration: "1 Month",
-    price: 39,
+    price: 5000,
     description: "Learn computer fundamentals and internet skills.",
     image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700",
   },
@@ -84,7 +84,7 @@ const courses: Course[] = [
     category: "UI/UX Design",
     level: "Beginner to Intermediate",
     duration: "2 Months",
-    price: 89,
+    price: 9500,
     description: "Design modern and user-friendly web and mobile interfaces.",
     image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700",
   },
@@ -94,7 +94,7 @@ const courses: Course[] = [
     category: "Microsoft Office",
     level: "Beginner",
     duration: "1 Month",
-    price: 59,
+    price: 7500,
     description: "Analyze data, create reports and visualize insights.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700",
   },
@@ -104,7 +104,7 @@ const courses: Course[] = [
     category: "Computer Basics",
     level: "Beginner",
     duration: "1 Month",
-    price: 49,
+    price: 6500,
     description: "Learn practical skills to start your freelancing career.",
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700",
   },
@@ -114,7 +114,7 @@ const courses: Course[] = [
     category: "Programming",
     level: "Beginner",
     duration: "3 Months",
-    price: 89,
+    price: 11000,
     description: "Understand Java programming and object-oriented concepts.",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=700",
   },
@@ -124,7 +124,7 @@ const courses: Course[] = [
     category: "Programming",
     level: "Intermediate",
     duration: "2 Months",
-    price: 79,
+    price: 10000,
     description: "Build interactive websites using modern JavaScript.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700",
   },
@@ -134,7 +134,7 @@ const courses: Course[] = [
     category: "Web Development",
     level: "Beginner",
     duration: "3 Months",
-    price: 99,
+    price: 12500,
     description: "Create responsive interfaces with HTML, CSS and JavaScript.",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700",
   },
@@ -144,7 +144,7 @@ const courses: Course[] = [
     category: "Web Development",
     level: "Beginner",
     duration: "2 Months",
-    price: 69,
+    price: 9000,
     description: "Create professional websites using WordPress.",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700",
   },
@@ -154,7 +154,7 @@ const courses: Course[] = [
     category: "Graphic Design",
     level: "Beginner",
     duration: "2 Months",
-    price: 59,
+    price: 7500,
     description: "Learn photo editing and creative image design.",
     image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=700",
   },
@@ -164,7 +164,7 @@ const courses: Course[] = [
     category: "Programming",
     level: "Beginner",
     duration: "2 Months",
-    price: 99,
+    price: 12500,
     description: "Explore AI fundamentals and practical applications.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700",
   },
@@ -174,7 +174,7 @@ const courses: Course[] = [
     category: "Digital Marketing",
     level: "Beginner",
     duration: "1 Month",
-    price: 49,
+    price: 6500,
     description: "Learn SEO techniques to improve website visibility.",
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700",
   },
@@ -184,7 +184,7 @@ const courses: Course[] = [
     category: "Microsoft Office",
     level: "Intermediate",
     duration: "2 Months",
-    price: 69,
+    price: 8500,
     description: "Learn formulas, charts and advanced spreadsheets.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700",
   },
@@ -194,11 +194,15 @@ const courses: Course[] = [
     category: "UI/UX Design",
     level: "Beginner",
     duration: "2 Months",
-    price: 79,
+    price: 10000,
     description: "Design attractive and user-friendly mobile interfaces.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?w=700",
   },
 ];
+
+function formatPkr(amount: number) {
+  return amount.toLocaleString("en-PK");
+}
 
 function Svg({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -621,8 +625,8 @@ export default function CoursesPage() {
 
                       <div className={styles.priceRow}>
                         <p className={styles.price}>
-                          <span className={styles.priceCurrency}>$</span>
-                          {course.price}
+                          <span className={styles.priceCurrency}>PKR</span>{" "}
+                          {formatPkr(course.price)}
                         </p>
                         <Link href={`/courses/${course.id}`} className={styles.detailsBtn}>
                           View Details
