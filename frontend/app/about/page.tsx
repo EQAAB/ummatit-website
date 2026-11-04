@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./about.module.css";
 import type { Metadata } from "next";
 
@@ -34,8 +35,8 @@ function Icon({ name }: { name: string }) {
 
 const services = [
   { title: "Islamic Studies", desc: "Learn Quran and Islamic education through our dedicated platform.", image: serviceImages.quran, icon: "book", href: "https://qurancoaching.com/", action: "Visit Quran Coaching" },
-  { title: "IT Courses", desc: "Build in-demand skills with practical, industry-focused IT courses.", image: serviceImages.laptop, icon: "laptop", href: "/#courses", action: "Explore IT Courses" },
-  { title: "Islamic Products", desc: "Discover a wide range of authentic and high-quality Islamic products.", image: serviceImages.products, icon: "cart", href: "/#shop", action: "Shop Now" },
+  { title: "IT Courses", desc: "Build in-demand skills with practical, industry-focused IT courses.", image: serviceImages.laptop, icon: "laptop", href: "/courses", action: "Explore IT Courses" },
+  { title: "Islamic Products", desc: "Discover a wide range of authentic and high-quality Islamic products.", image: serviceImages.products, icon: "cart", href: "/islamic-shop", action: "Shop Now" },
 ];
 const benefits = [
   { icon: "cap", title: "Quality Education", text: "Learn from qualified and experienced instructors." },
@@ -48,7 +49,7 @@ const values = ["Authenticity|Based on Islamic values", "Quality|In learning and
 export default function AboutPage() {
   return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
-      <div className={styles.heroInner}><p className={styles.breadcrumb}><a href="/">⌂ &nbsp;Home</a><span>›</span>About Us</p><h1>About <em>Us</em></h1><p className={styles.tagline}>Learn · Grow · Serve the Ummah</p><p className={styles.heroCopy}>Ummat IT House is a platform that combines Islamic learning, modern IT education, and authentic Islamic products to help individuals grow in faith, skills, and daily life.</p></div>
+      <div className={styles.heroInner}><p className={styles.breadcrumb}><Link href="/">⌂ &nbsp;Home</Link><span>›</span>About Us</p><h1>About <em>Us</em></h1><p className={styles.tagline}>Learn · Grow · Serve the Ummah</p><p className={styles.heroCopy}>Ummat IT House is a platform that combines Islamic learning, modern IT education, and authentic Islamic products to help individuals grow in faith, skills, and daily life.</p></div>
     </section>
 
     <section className={styles.missionVision}>
@@ -59,7 +60,7 @@ export default function AboutPage() {
 
     <section className={styles.services}>
       <div className={styles.sectionTitle}><h2>Our Services</h2><span><i/>◇<i/></span></div>
-      <div className={styles.serviceGrid}>{services.map((item, i)=><article className={`${styles.serviceCard} ${i===0?styles.featured:""}`} key={item.title}><img src={item.image} alt="" loading="lazy"/><div className={styles.serviceCopy}><h3><Icon name={item.icon}/>{item.title}</h3><p>{item.desc}</p><a href={item.href} {...(item.href.startsWith("http")?{target:"_blank",rel:"noopener noreferrer"}:{})}>{item.action}<span>↗</span></a></div></article>)}</div>
+      <div className={styles.serviceGrid}>{services.map((item, i)=><article className={`${styles.serviceCard} ${i===0?styles.featured:""}`} key={item.title}><img src={item.image} alt="" loading="lazy"/><div className={styles.serviceCopy}><h3><Icon name={item.icon}/>{item.title}</h3><p>{item.desc}</p>{item.href.startsWith("http")?<a href={item.href} target="_blank" rel="noopener noreferrer">{item.action}<span>↗</span></a>:<Link href={item.href}>{item.action}<span>↗</span></Link>}</div></article>)}</div>
     </section>
 
     <section className={styles.why}>

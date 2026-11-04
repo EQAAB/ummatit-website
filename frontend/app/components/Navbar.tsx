@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -7,7 +8,7 @@ const islamicHref = "https://qurancoaching.com/";
 
 export function Brand({ light = false }: { light?: boolean }) {
   return (
-    <a className={`brand${light ? " brand-light" : ""}`} href="/" aria-label="Ummat IT House home">
+    <Link className={`brand${light ? " brand-light" : ""}`} href="/" aria-label="Ummat IT House home">
       <span className="brand-mark">
         <span>U</span>
       </span>
@@ -15,7 +16,7 @@ export function Brand({ light = false }: { light?: boolean }) {
         <strong>UMMAT</strong>
         <small>IT HOUSE</small>
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -44,52 +45,52 @@ export function Navbar() {
           <span />
         </button>
         <nav className={`nav-links${open ? " nav-open" : ""}`} aria-label="Main navigation">
-          <a
+          <Link
             className={onHome ? "nav-active" : undefined}
             aria-current={onHome ? "page" : undefined}
             href="/"
             onClick={close}
           >
             Home
-          </a>
+          </Link>
           <a href={islamicHref} target="_blank" rel="noopener noreferrer" onClick={close}>
             Islamic Studies <span className="external">↗</span>
           </a>
-          <a
+          <Link
             className={onCourses ? "nav-active" : undefined}
             aria-current={onCourses ? "page" : undefined}
             href="/courses"
             onClick={close}
           >
             IT Courses
-          </a>
-          <a
+          </Link>
+          <Link
             className={onShop ? "nav-active" : undefined}
             aria-current={onShop ? "page" : undefined}
             href="/islamic-shop"
             onClick={close}
           >
             Islamic Shop
-          </a>
-          <a
+          </Link>
+          <Link
             className={onAbout ? "nav-active" : undefined}
             aria-current={onAbout ? "page" : undefined}
             href="/about"
             onClick={close}
           >
             About Us
-          </a>
-          <a
+          </Link>
+          <Link
             className={onContact ? "nav-active" : undefined}
             aria-current={onContact ? "page" : undefined}
             href="/contact"
             onClick={close}
           >
             Contact Us
-          </a>
-          <a className="nav-cta" href="/courses" onClick={close}>
+          </Link>
+          <Link className="nav-cta" href="/courses" onClick={close}>
             Start learning <span>↗</span>
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

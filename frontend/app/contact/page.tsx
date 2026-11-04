@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "./ContactForm";
 import styles from "./contact.module.css";
 
@@ -34,12 +35,12 @@ export default function ContactPage() {
     { icon: "chat", title: "WhatsApp Support", description: "Get quick assistance on WhatsApp.", action: "Chat on WhatsApp", href: "https://wa.me/923338130214", external: true },
     { icon: "mail", title: "Email Support", description: "Send us an email for any inquiry.", action: "Send Email", href: "mailto:support@ummatithouse.com", external: true },
     { icon: "question", title: "FAQs", description: "No FAQ page is available yet. Ask us directly.", action: "Ask a Question", href: "mailto:support@ummatithouse.com?subject=FAQs", external: true },
-    { icon: "book", title: "Course Guidance", description: "Need help choosing a course?", action: "Explore Courses", href: "/#courses", external: false },
+    { icon: "book", title: "Course Guidance", description: "Need help choosing a course?", action: "Explore Courses", href: "/courses", external: false },
   ];
 
   return <main className={styles.page}>
     <section className={styles.hero} style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
-      <div className={styles.heroInner}><p className={styles.breadcrumb}><a href="/">⌂ &nbsp;Home</a><span>›</span>Contact Us</p><h1>Contact <em>Us</em></h1><p>We’re here to help you. Get in touch with our team for any<br className={styles.desktopBreak}/> questions about our IT courses, Islamic products, or services.</p></div>
+      <div className={styles.heroInner}><p className={styles.breadcrumb}><Link href="/">⌂ &nbsp;Home</Link><span>›</span>Contact Us</p><h1>Contact <em>Us</em></h1><p>We’re here to help you. Get in touch with our team for any<br className={styles.desktopBreak}/> questions about our IT courses, Islamic products, or services.</p></div>
     </section>
 
     <section className={styles.contactLayout} aria-label="Contact Ummat IT House">
@@ -59,7 +60,7 @@ export default function ContactPage() {
 
     <section className={styles.otherWays}>
       <div className={styles.sectionTitle}><h2>Other Ways to Get in Touch</h2><span><i/>◇<i/></span></div>
-      <div className={styles.waysGrid}>{ways.map((item)=><article className={styles.wayCard} key={item.title}><span className={styles.wayIcon}><Icon name={item.icon}/></span><div className={styles.wayContent}><h3>{item.title}</h3><p>{item.description}</p><a href={item.href} {...(item.external?{target:"_blank",rel:"noopener noreferrer"}:{})}>{item.action}<span aria-hidden="true">↗</span></a></div></article>)}</div>
+      <div className={styles.waysGrid}>{ways.map((item)=><article className={styles.wayCard} key={item.title}><span className={styles.wayIcon}><Icon name={item.icon}/></span><div className={styles.wayContent}><h3>{item.title}</h3><p>{item.description}</p>{item.external?<a href={item.href} target="_blank" rel="noopener noreferrer">{item.action}<span aria-hidden="true">↗</span></a>:<Link href={item.href}>{item.action}<span aria-hidden="true">↗</span></Link>}</div></article>)}</div>
     </section>
   </main>;
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { courses, products, testimonials } from "../data";
 import { CardImage } from "./CardImage";
 
@@ -40,12 +41,12 @@ export function Hero() {
           A complete platform for modern IT skills and authentic Islamic products — all in one place.
         </p>
         <div className="hero-actions">
-          <a className="button button-primary" href="/courses">
+          <Link className="button button-primary" href="/courses">
             <span aria-hidden="true">▣</span> Start Learning <span aria-hidden="true">→</span>
-          </a>
-          <a className="button button-secondary" href="#shop">
+          </Link>
+          <Link className="button button-secondary" href="/islamic-shop">
             <span aria-hidden="true">🛒</span> Visit Shop
-          </a>
+          </Link>
         </div>
         <div className="hero-trust">
           <span>
@@ -86,7 +87,7 @@ export function CategoryCards() {
     {
       title: "Islamic Products",
       desc: "Discover a wide range of authentic Islamic products.",
-      link: "#shop",
+      link: "/islamic-shop",
       label: "Visit Islamic Shop",
       image: photos.shop,
     },
@@ -101,13 +102,17 @@ export function CategoryCards() {
             <div className="category-copy">
               <h2>{item.title}</h2>
               <p>{item.desc}</p>
-              <a
-                href={item.link}
-                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                {item.label}
-                <span aria-hidden="true">→</span>
-              </a>
+              {item.external ? (
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.label}
+                  <span aria-hidden="true">→</span>
+                </a>
+              ) : (
+                <Link href={item.link}>
+                  {item.label}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              )}
             </div>
           </article>
         ))}
@@ -140,10 +145,10 @@ function SectionHeading({
           <p>{note}</p>
         </div>
       </div>
-      <a className="view-link" href={href}>
+      <Link className="view-link" href={href}>
         {link}
         <span aria-hidden="true">→</span>
-      </a>
+      </Link>
     </div>
   );
 }
@@ -169,9 +174,9 @@ export function CoursesSection() {
             <div className="course-info">
               <h3>{course.title}</h3>
               <p>{course.description}</p>
-              <a className="card-action" href="#courses">
+              <Link className="card-action" href="/courses">
                 View Details →
-              </a>
+              </Link>
             </div>
           </article>
         ))}
@@ -187,7 +192,7 @@ export function ProductsSection() {
         icon="🛒"
         title="Islamic Products Shop"
         note="High-quality Islamic products for your spiritual journey."
-        href="#shop"
+        href="/islamic-shop"
         link="View All Products"
       />
       <div className="product-grid">
@@ -201,9 +206,9 @@ export function ProductsSection() {
             <div className="product-info">
               <h3>{product.title}</h3>
               <strong>{product.price}</strong>
-              <a className="add-cart" href="#shop">
+              <Link className="add-cart" href="/islamic-shop">
                 View Product
-              </a>
+              </Link>
             </div>
           </article>
         ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import styles from "./shop.module.css";
 
@@ -48,7 +49,7 @@ export default function IslamicShopPage() {
       <div className={styles.heroImage} />
       <div className={styles.heroShade} />
       <div className={styles.heroCopy}>
-        <div className={styles.breadcrumb}><a href="/">⌂ &nbsp; Home</a><span>›</span><span>Islamic Shop</span></div>
+        <div className={styles.breadcrumb}><Link href="/">⌂ &nbsp; Home</Link><span>›</span><span>Islamic Shop</span></div>
         <h1 id="shop-title">Islamic <em>Shop</em></h1>
         <p>Discover a wide range of authentic Islamic products including Qurans, Islamic books, prayer mats, tasbeeh, attar, clothing, wall art, and meaningful gift items.</p>
       </div>

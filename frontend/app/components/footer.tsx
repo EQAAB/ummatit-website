@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const islamicHref = "https://qurancoaching.com/";
 
 const socials = [
@@ -13,7 +15,7 @@ export function Footer() {
     <footer className="footer" id="site-footer">
       <div className="footer-main">
         <div className="footer-brand-block">
-          <a className="brand brand-footer" href="/">
+          <Link className="brand brand-footer" href="/">
             <span className="brand-mark">
               <span>U</span>
             </span>
@@ -21,7 +23,7 @@ export function Footer() {
               <strong>UMMAT</strong>
               <small>IT HOUSE</small>
             </span>
-          </a>
+          </Link>
           <p>
             An all-in-one platform for modern IT skills and authentic Islamic products. Learn, grow
             and stay connected to your deen.
@@ -29,17 +31,17 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Quick Links</h3>
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
           <a href={islamicHref} target="_blank" rel="noopener noreferrer">
             Islamic Studies
             <span className="external" aria-hidden="true">
               ↗
             </span>
           </a>
-          <a href="/courses">IT Courses</a>
-          <a href="/#shop">Islamic Shop</a>
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact Us</a>
+          <Link href="/courses">IT Courses</Link>
+          <Link href="/islamic-shop">Islamic Shop</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/contact">Contact Us</Link>
         </div>
         <div className="footer-col">
           <h3>Contact Us</h3>
