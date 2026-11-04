@@ -30,7 +30,7 @@ function ContactFooter() {
       <div className={styles.footerBrand}><a className={styles.footerLogo} href="/"><span>U</span><strong>Ummat IT House<small>Islamic Learning · IT Skills · Islamic Products</small></strong></a><p>A trusted platform for Islamic learning, modern IT education, and authentic Islamic products. Learn, grow and serve the Ummah with us.</p></div>
       <div className={styles.footerColumn}><h2>Quick Links</h2><a href="/">Home</a><a href="https://qurancoaching.com/" target="_blank" rel="noopener noreferrer">Islamic Studies ↗</a><a href="/#courses">IT Courses</a><a href="/#shop">Islamic Shop</a><a href="/about">About Us</a><a href="/contact">Contact</a></div>
       <div className={styles.footerColumn}><h2>Useful Links</h2><a href="mailto:support@ummatithouse.com?subject=FAQs">FAQs</a><a href="mailto:support@ummatithouse.com?subject=Privacy%20Policy">Privacy Policy</a><a href="mailto:support@ummatithouse.com?subject=Terms%20and%20Conditions">Terms &amp; Conditions</a><a href="mailto:support@ummatithouse.com?subject=Refund%20Policy">Refund Policy</a><a href="mailto:support@ummatithouse.com?subject=Shipping%20Policy">Shipping Policy</a></div>
-      <div className={styles.footerColumn}><h2>Contact Us</h2><a href="tel:+923338130214">☎ &nbsp;+92 333 8130214</a><a href="mailto:support@ummatithouse.com">✉ &nbsp;support@ummatithouse.com</a><a href="https://maps.app.goo.gl/ABSrFoVzceRJPmLY9" target="_blank" rel="noopener noreferrer">⌖ &nbsp;Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan</a></div>
+      <div className={styles.footerColumn}><h2>Contact Us</h2><a href="tel:+923338130214">☎ &nbsp;+92 333 8130214</a><a href="mailto:support@ummatithouse.com">✉ &nbsp;support@ummatithouse.com</a><a href="https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" target="_blank" rel="noopener noreferrer">⌖ &nbsp;Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan</a></div>
       <div className={styles.footerColumn}><h2>Follow Us</h2><div className={styles.socials}><a href="https://facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a><a href="https://youtube.com/" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a><a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">◎</a><a href="https://linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a></div></div>
     </div>
     <div className={styles.footerBottom}><span>© 2026 Ummat IT House. All Rights Reserved.</span><strong>Learn &nbsp; | &nbsp; Grow &nbsp; | &nbsp; Earn &nbsp; | &nbsp; Serve the Ummah</strong></div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
   const contactMethods = [
     { icon: "mail", title: "Email Us", detail: "support@ummatithouse.com", href: "mailto:support@ummatithouse.com" },
     { icon: "phone", title: "Call / WhatsApp", detail: "+92 333 8130214", href: "https://wa.me/923338130214" },
-    { icon: "pin", title: "Our Location", detail: "Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan", href: "https://maps.app.goo.gl/ABSrFoVzceRJPmLY9" },
+    { icon: "pin", title: "Our Location", detail: "Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan", href: "https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" },
     { icon: "clock", title: "Working Hours", detail: "Mon – Sat: 9:00 AM – 6:00 PM (PKT)" },
   ];
   const ways = [
@@ -67,7 +67,7 @@ export default function ContactPage() {
           <div className={styles.contactList}>{contactMethods.map((item)=><div className={styles.contactItem} key={item.title}><span><Icon name={item.icon}/></span><div><h3>{item.title}</h3>{item.href?<a href={item.href} {...(item.href.startsWith("https")?{target:"_blank",rel:"noopener noreferrer"}:{})}>{item.detail}</a>:<p>{item.detail}</p>}</div></div>)}</div>
           <div className={styles.archArt} aria-hidden="true">۞</div>
         </article>
-        <article className={styles.mapCard} aria-label="Map showing Ummat IT House in Islamabad"><iframe title="Map showing Ummat IT House, Islamabad, Pakistan" src="https://maps.google.com/maps?q=Street%2070%2C%20MPCHS%20E-11%2F3%2C%20E-11%2C%20Islamabad%2C%20Pakistan&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/><a className={styles.mapLabel} href="https://maps.app.goo.gl/ABSrFoVzceRJPmLY9" target="_blank" rel="noopener noreferrer"><Icon name="pin"/><span><strong>Ummat IT House</strong><small>Street 70, MPCHS E-11/3, E-11, Islamabad</small></span></a></article>
+        <article className={styles.mapCard} aria-label="Map showing Ummat IT House in Islamabad"><iframe title="Map showing Ummat IT House, Islamabad, Pakistan" src="https://maps.google.com/maps?q=33.7045102,72.9795961&z=16&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade"/><a className={styles.mapLabel} href="https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" target="_blank" rel="noopener noreferrer"><Icon name="pin"/><span><strong>Ummat IT House</strong><small>Street 70, MPCHS E-11/3, E-11, Islamabad</small></span></a></article>
       </div>
     </section>
 
