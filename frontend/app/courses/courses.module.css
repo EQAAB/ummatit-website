@@ -463,13 +463,14 @@
 }
 .price {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-tight);
   color: #07543d;
+  white-space: nowrap;
 }
 .priceCurrency {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   font-weight: var(--weight-semibold);
   color: #a47b32;
 }

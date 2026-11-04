@@ -291,7 +291,7 @@ export function Footer() {
           </a>
           <a href="mailto:support@ummatithouse.com">support@ummatithouse.com</a>
           <a
-            href="https://maps.app.goo.gl/ABSrFoVzceRJPmLY9"
+            href="https://maps.app.goo.gl/omCVRYg1mKbgzPcU8"
             target="_blank"
             rel="noopener noreferrer"
           >
