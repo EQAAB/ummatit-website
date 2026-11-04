@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/footer";
 import { Navbar } from "./components/Navbar";
 import "./globals.css";
 
