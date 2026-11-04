@@ -286,11 +286,17 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Contact Us</h3>
-          <a className="footer-contact" href="tel:+923001234567">
-            +92 300 1234567
+          <a className="footer-contact" href="tel:+923338130214">
+            +92 333 8130214
           </a>
           <a href="mailto:support@ummatithouse.com">support@ummatithouse.com</a>
-          <span>Lahore, Pakistan</span>
+          <a
+            href="https://maps.app.goo.gl/ABSrFoVzceRJPmLY9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan
+          </a>
           <span>Mon - Sat (9AM - 6PM)</span>
         </div>
         <div className="footer-col">
