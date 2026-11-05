@@ -30,10 +30,22 @@ export default function ShoppingCartPage() {
   };
 
   return <main className={styles.page}>
-    <section className={shopStyles.hero}><div className={shopStyles.heroInner}>
-      <p className={shopStyles.breadcrumb}><Link href="/">Home</Link><span>›</span><Link href="/islamic-shop">Islamic Shop</Link><span>›</span><span>Shopping Cart</span></p>
-      <h1>Shopping <em>Cart</em></h1><p className={shopStyles.heroCopy}>Review your selected items and continue when you’re ready.</p>
-    </div></section>
+    <section className={shopStyles.hero}>
+      <div className={shopStyles.heroInner}>
+        <p className={shopStyles.breadcrumb}>
+          <Link href="/">Home</Link>
+          &nbsp; › &nbsp;
+          <Link href="/islamic-shop">Islamic Shop</Link>
+          &nbsp; › &nbsp;Shopping Cart
+        </p>
+        <h1>
+          Shopping <em>Cart</em>
+        </h1>
+        <p className={shopStyles.heroCopy}>
+          Review your selected items and continue when you’re ready.
+        </p>
+      </div>
+    </section>
     <section className={styles.content}>
       {!ready ? <div className={styles.empty}><p>Loading your cart…</p></div> : items.length === 0 ? <div className={styles.empty}><span aria-hidden="true">🛒</span><h2>Your cart is empty</h2><p>Explore the shop and find something meaningful for your home.</p><Link className={styles.primaryButton} href="/islamic-shop">Continue Shopping</Link></div> : <div className={styles.layout}>
         <section className={styles.cartCard} aria-labelledby="your-cart">

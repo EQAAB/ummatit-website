@@ -1,5 +1,5 @@
 .page { min-height: 60vh; background: #fffefa; color: var(--ink); }
-.content { max-width: 1240px; margin: auto; padding: 28px var(--gutter) 48px; }
+.content { max-width: var(--listing-max); margin: auto; padding: var(--listing-pad-y) var(--gutter) 48px; }
 .layout { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(290px, .9fr); gap: 22px; align-items: start; }
 .cartCard, .summary { background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 4px 18px #1d33200c; overflow: hidden; }
 .cardHeading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 17px 20px; }
@@ -51,7 +51,7 @@
 .primaryButton { width: fit-content; margin: auto; padding: 0 22px; }
 @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
 @media (max-width: 680px) {
-  .content { padding: 18px 16px 32px; }
+  .content { padding: 18px var(--gutter) 32px; }
   .cardHeading { padding: 15px; }
   .columnHead { display: none; }
   .items { padding: 0 15px; }
