@@ -45,8 +45,8 @@ export function Footer() {
         </div>
         <div className="footer-col">
           <h3>Contact Us</h3>
-          <a className="footer-contact" href="tel:+923338130214">
-            +92 333 8130214
+          <a className="footer-contact" href="tel:+923451548039">
+            +92 3451548039
           </a>
           <a href="mailto:support@ummatithouse.com">support@ummatithouse.com</a>
           <a
