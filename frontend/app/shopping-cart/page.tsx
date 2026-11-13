@@ -1,13 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useCart } from "../components/CartProvider";
 import { productImage } from "../islamic-shop/catalog";
 import styles from "./cart.module.css";
 import shopStyles from "../islamic-shop/shop.module.css";
 
 const money = (amount: number) => `Rs. ${amount.toLocaleString("en-PK")}`;
+const whatsappNumber = "923451548039";
+
+type DeliveryForm = {
+  fullName: string;
+  phone: string;
+  city: string;
+  address: string;
+  notes: string;
+};
+
+const emptyForm: DeliveryForm = {
+  fullName: "",
+  phone: "",
+  city: "",
+  address: "",
+  notes: "",
+};
 
 export default function ShoppingCartPage() {
   const { items, ready, setQuantity, remove, clear } = useCart();
@@ -17,6 +34,7 @@ export default function ShoppingCartPage() {
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = items.length ? 250 : 0;
   const total = Math.max(0, subtotal + shipping - discount);
+  const itemCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
 
   const applyCoupon = () => {
     if (coupon.trim().toUpperCase() === "UMMAT10") {
@@ -57,8 +75,8 @@ export default function ShoppingCartPage() {
             <Link className={styles.checkout} href="/checkout">Proceed to Checkout <span>→</span></Link>
             <div className={styles.coupon}><h3>Have a Coupon Code?</h3><p>Enter your code to get a discount.</p><div className={styles.couponForm}><input value={coupon} onChange={(event) => setCoupon(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") applyCoupon(); }} aria-label="Coupon code" placeholder="Enter coupon code" /><button type="button" onClick={applyCoupon}>Apply</button></div>{couponMessage && <p className={styles.couponMessage} role="status">{couponMessage}</p>}</div>
           </div>
-        </aside>
-      </div>}
-    </section>
-  </main>;
+        )}
+      </section>
+    </main>
+  );
 }

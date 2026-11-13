@@ -45,8 +45,9 @@ const BenefitIcons = {
   ),
   checkout: (
     <Svg>
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      <rect x="2" y="6" width="20" height="12" rx="2" />
+      <circle cx="12" cy="12" r="2.5" />
+      <path d="M6 10h.01M18 14h.01" />
     </Svg>
   ),
   delivery: (
@@ -72,8 +73,9 @@ const BenefitIcons = {
   ),
   payment: (
     <Svg>
-      <rect x="2" y="5" width="20" height="14" rx="2" />
-      <path d="M2 10h20" />
+      <rect x="2" y="6" width="20" height="12" rx="2" />
+      <circle cx="12" cy="12" r="2.5" />
+      <path d="M6 10h.01M18 14h.01" />
     </Svg>
   ),
   support: (
@@ -154,14 +156,14 @@ export default function IslamicShopPage() {
   const benefits = [
     { icon: BenefitIcons.authentic, title: "Authentic Products", desc: "100% Islamic & Shariah-compliant items" },
     { icon: BenefitIcons.quality, title: "Quality Materials", desc: "Durable, premium & long-lasting" },
-    { icon: BenefitIcons.checkout, title: "Secure Checkout", desc: "Safe & encrypted payment options" },
+    { icon: BenefitIcons.checkout, title: "Cash on Delivery", desc: "Pay in cash when your order arrives" },
     { icon: BenefitIcons.delivery, title: "Fast Delivery", desc: "Reliable shipping across your region" },
   ];
 
   const bottomBenefits = [
     { icon: BenefitIcons.range, title: "Wide Product Range", desc: "Qurans, books, clothing, gifts and more" },
     { icon: BenefitIcons.premium, title: "Premium Quality", desc: "Carefully selected, durable & authentic" },
-    { icon: BenefitIcons.payment, title: "Secure Payment", desc: "Multiple safe & trusted payment options" },
+    { icon: BenefitIcons.payment, title: "Cash on Delivery", desc: "COD available across Pakistan" },
     { icon: BenefitIcons.support, title: "Customer Support", desc: "Friendly help when you need it" },
   ];
 

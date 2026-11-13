@@ -27,12 +27,12 @@ function Icon({ name }: { name: string }) {
 export default function ContactPage() {
   const contactMethods = [
     { icon: "mail", title: "Email Us", detail: "support@ummatithouse.com", href: "mailto:support@ummatithouse.com" },
-    { icon: "phone", title: "Call / WhatsApp", detail: "+92 333 8130214", href: "https://wa.me/923338130214" },
+    { icon: "phone", title: "Call / WhatsApp", detail: "+92 3451548039", href: "https://wa.me/923451548039" },
     { icon: "pin", title: "Our Location", detail: "Street 70, MPCHS E-11/3, E-11, Islamabad, Pakistan", href: "https://maps.app.goo.gl/omCVRYg1mKbgzPcU8" },
     { icon: "clock", title: "Working Hours", detail: "Mon – Sat: 9:00 AM – 6:00 PM (PKT)" },
   ];
   const ways = [
-    { icon: "chat", title: "WhatsApp Support", description: "Get quick assistance on WhatsApp.", action: "Chat on WhatsApp", href: "https://wa.me/923338130214", external: true },
+    { icon: "chat", title: "WhatsApp Support", description: "Get quick assistance on WhatsApp.", action: "Chat on WhatsApp", href: "https://wa.me/923451548039", external: true },
     { icon: "mail", title: "Email Support", description: "Send us an email for any inquiry.", action: "Send Email", href: "mailto:support@ummatithouse.com", external: true },
     { icon: "question", title: "FAQs", description: "No FAQ page is available yet. Ask us directly.", action: "Ask a Question", href: "mailto:support@ummatithouse.com?subject=FAQs", external: true },
     { icon: "book", title: "Course Guidance", description: "Need help choosing a course?", action: "Explore Courses", href: "/courses", external: false },

@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
-import { useParams } from "next/navigation";
 import styles from "./product.module.css";
 import { shopProducts } from "../catalog";
 import { useCart } from "../../components/CartProvider";
@@ -16,6 +17,7 @@ const related = [
 ];
 
 export default function ProductDetails({ product }: { product: Product }) {
+  const router = useRouter();
   const { slug } = useParams<{ slug: string }>();
   const [activeImage, setActiveImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -26,11 +28,18 @@ export default function ProductDetails({ product }: { product: Product }) {
   const [zoom, setZoom] = useState(false);
   const tabs = ["Description", "Specifications", "Shipping & Delivery", "Reviews"];
 
-  const addToCart = (name = product.title, amount = quantity) => {
-    const item = shopProducts.find((candidate) => candidate.title === name || (name.includes("Tasbeeh") && candidate.title.includes("Tasbeeh")) || (name.includes("Attar") && candidate.title.includes("Attar")))
+  const resolveCartItem = (name = product.title) =>
+    shopProducts.find((candidate) => candidate.title === name || (name.includes("Tasbeeh") && candidate.title.includes("Tasbeeh")) || (name.includes("Attar") && candidate.title.includes("Attar")))
       ?? { title: name, category: product.category, description: product.description, price: product.price, rating: product.rating, reviews: product.reviews, image: product.images[0] };
-    add(item, amount);
+
+  const addToCart = (name = product.title, amount = quantity) => {
+    add(resolveCartItem(name), amount);
     setNotice(`${amount} × ${name} added to your cart.`);
+  };
+
+  const buyNowCod = () => {
+    add(resolveCartItem(product.title), quantity);
+    router.push("/shopping-cart");
   };
   return <main className={styles.page}>
     <div className={styles.crumb}><a href="/">⌂ &nbsp; Home</a><span>›</span><a href="/islamic-shop">Islamic Shop</a><span>›</span><a href="/islamic-shop">Quran &amp; Islamic Books</a><span>›</span><span>{product.title}</span></div>
@@ -42,7 +51,7 @@ export default function ProductDetails({ product }: { product: Product }) {
       <div className={styles.details}><span className={styles.category}>{product.category}</span><h1>{product.title}</h1><div className={styles.rating}><span aria-label={`${product.rating} out of 5 stars`}>★★★★★</span><b>{product.rating}</b><a href="#reviews">({product.reviews} Reviews)</a><i />{product.sold}+ Sold</div><p className={styles.description}>{product.description}</p>
         <div className={styles.featureRow}>{product.features.map((feature, index) => <div key={feature}><span>{["♧", "▱", "♙", "♔"][index % 4]}</span>{feature}</div>)}</div>
       </div>
-      <aside className={styles.purchase}><span className={styles.priceLabel}>Price {quantity > 1 ? <small>(Rs. {product.price.toLocaleString("en-PK")} each)</small> : null}</span><strong className={styles.price}>Rs. {(product.price * quantity).toLocaleString("en-PK")}</strong><div className={styles.availability}><span>✓</span> Availability: &nbsp;In Stock</div><div className={styles.quantity}><b>Quantity:</b><div><button onClick={() => setQuantity((n) => Math.max(1, n - 1))} aria-label="Decrease quantity">−</button><span>{quantity}</span><button onClick={() => setQuantity((n) => n + 1)} aria-label="Increase quantity">+</button></div></div><button className={styles.addButton} onClick={() => addToCart()}>🛒 &nbsp; Add to Cart</button><button className={`${styles.wishButton} ${wishlisted ? styles.wished : ""}`} onClick={() => { setWishlisted(!wishlisted); setNotice(wishlisted ? "Removed from your wishlist." : "Added to your wishlist."); }}>{wishlisted ? "♥" : "♡"} &nbsp; {wishlisted ? "Added to Wishlist" : "Add to Wishlist"}</button>{items.length > 0 && <small className={styles.cartStatus}>Cart: {items.reduce((total, item) => total + item.quantity, 0)} items</small>}</aside>
+      <aside className={styles.purchase}><span className={styles.priceLabel}>Price {quantity > 1 ? <small>(Rs. {product.price.toLocaleString("en-PK")} each)</small> : null}</span><strong className={styles.price}>Rs. {(product.price * quantity).toLocaleString("en-PK")}</strong><div className={styles.availability}><span>✓</span> Availability: &nbsp;In Stock</div><div className={styles.quantity}><b>Quantity:</b><div><button onClick={() => setQuantity((n) => Math.max(1, n - 1))} aria-label="Decrease quantity">−</button><span>{quantity}</span><button onClick={() => setQuantity((n) => n + 1)} aria-label="Increase quantity">+</button></div></div><button className={styles.addButton} onClick={() => addToCart()}>🛒 &nbsp; Add to Cart</button><button className={styles.buyNowButton} onClick={buyNowCod}>💵 &nbsp; Buy Now — Cash on Delivery</button><button className={`${styles.wishButton} ${wishlisted ? styles.wished : ""}`} onClick={() => { setWishlisted(!wishlisted); setNotice(wishlisted ? "Removed from your wishlist." : "Added to your wishlist."); }}>{wishlisted ? "♥" : "♡"} &nbsp; {wishlisted ? "Added to Wishlist" : "Add to Wishlist"}</button><p className={styles.codNote}><span aria-hidden="true">✓</span> Cash on Delivery available across Pakistan</p>{items.length > 0 && <small className={styles.cartStatus}>Cart: {items.reduce((total, item) => total + item.quantity, 0)} items · <Link href="/shopping-cart">View cart</Link></small>}</aside>
     </section>
     {notice && <div className={styles.notice} role="status">{notice}<button onClick={() => setNotice("")} aria-label="Dismiss message">×</button></div>}
     <section className={styles.information}>
@@ -50,7 +59,7 @@ export default function ProductDetails({ product }: { product: Product }) {
       <div className={styles.panel} role="tabpanel">
         {tab === "Description" && <><div><h2>Product Description</h2><p>{product.description} This carefully selected item is suitable for personal use, study, and as a meaningful gift.</p></div><div className={styles.keyFeatures}><h2>Key Features:</h2>{product.features.map((item) => <p key={item}><b>✓</b>{item}</p>)}</div></>}
         {tab === "Specifications" && <div className={styles.specs}><h2>Product Specifications</h2>{[["Category", product.category], ["Script / Style", "Uthmani Arabic script"], ["Cover", "Premium hardcover"], ["Availability", "In stock"], ["SKU", `UIH-${slug.toUpperCase().slice(0, 10)}`]].map(([key, value]) => <div key={key}><b>{key}</b><span>{value}</span></div>)}</div>}
-        {tab === "Shipping & Delivery" && <div><h2>Shipping &amp; Delivery</h2><p>We deliver across Pakistan. Orders are carefully packed and usually dispatched within 1–2 business days. Delivery typically takes 3–5 business days, depending on your location. Shipping charges are calculated at checkout.</p><p>For help with an order, contact our support team at support@ummatithouse.com.</p></div>}
+        {tab === "Shipping & Delivery" && <div><h2>Shipping &amp; Delivery</h2><p>We deliver across Pakistan. Orders are carefully packed and usually dispatched within 1–2 business days. Delivery typically takes 3–5 business days, depending on your location. Shipping charges are calculated at checkout.</p><p><strong>Cash on Delivery (COD)</strong> is available nationwide — pay in cash when your order arrives.</p><p>For help with an order, contact our support team at support@ummatithouse.com.</p></div>}
         {tab === "Reviews" && <div id="reviews"><h2>Customer Reviews</h2><div className={styles.reviewSummary}><strong>{product.rating} <span>★★★★★</span></strong><p>Based on {product.reviews} customer reviews</p></div><article className={styles.review}><b>★★★★★ &nbsp;A beautiful, clear edition</b><p>Excellent print quality and a lovely binding. It arrived safely packaged and is wonderful for daily reading.</p><small>Verified customer · Recently</small></article></div>}
       </div>
     </section>
