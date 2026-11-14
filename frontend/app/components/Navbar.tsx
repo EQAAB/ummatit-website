@@ -33,6 +33,7 @@ export function Navbar() {
   const onAbout = pathname === "/about";
   const onContact = pathname === "/contact";
   const onShop = pathname.startsWith("/islamic-shop");
+  const onLogin = pathname === "/login";
 
   return (
     <header className="site-header">
@@ -90,6 +91,14 @@ export function Navbar() {
             onClick={close}
           >
             Contact Us
+          </Link>
+          <Link
+            className={onLogin ? "nav-active" : undefined}
+            aria-current={onLogin ? "page" : undefined}
+            href="/login"
+            onClick={close}
+          >
+            Login
           </Link>
           <Link className="nav-cart" href="/shopping-cart" onClick={close} aria-label={`Shopping cart, ${cartCount} items`}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
