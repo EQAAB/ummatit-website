@@ -46,7 +46,7 @@ export default function LoginPage() {
       <article className={styles.formCard}>
         <div className={styles.intro}><span className={styles.introIcon}><Icon kind="laptop"/></span><div><h2>Welcome Back</h2><p>Sign in to your Ummat IT House account to continue learning, manage your orders, and more.</p></div></div>
         <LoginForm/>
-        <p className={styles.signup}>Don’t have an account? <Link href="/contact">Sign Up</Link></p>
+        <p className={styles.signup}>Don’t have an account? <Link href="/signup">Sign Up</Link></p>
       </article>
       <aside className={styles.infoCard}>
         <h2>Your Learning, Orders<br/> and Account — In One Place</h2><span className={styles.goldRule}/>
