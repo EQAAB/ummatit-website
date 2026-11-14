@@ -440,6 +440,25 @@ export default function IslamicShopPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating cart bar — appears when items are in the cart */}
+      {cart.length > 0 && (
+        <div className={styles.cartBar} role="status">
+          <span className={styles.cartBarIcon}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+          </span>
+          <p className={styles.cartBarText}>
+            <strong>{cart.length}</strong> item{cart.length > 1 ? "s" : ""} in your cart
+          </p>
+          <Link href="/order-confirmation" className={styles.cartBarBtn}>
+            Checkout <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      )}
     </main>
   );
 }
