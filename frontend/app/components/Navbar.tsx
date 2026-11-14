@@ -34,6 +34,7 @@ export function Navbar() {
   const onContact = pathname === "/contact";
   const onShop = pathname.startsWith("/islamic-shop");
   const onLogin = pathname === "/login";
+  const onSignup = pathname === "/signup";
 
   return (
     <header className="site-header">
@@ -100,15 +101,15 @@ export function Navbar() {
           >
             Login
           </Link>
+          <Link className={`nav-cta${onSignup ? " nav-active" : ""}`} href="/signup" aria-current={onSignup ? "page" : undefined} onClick={close}>
+            Sign Up
+          </Link>
           <Link className="nav-cart" href="/shopping-cart" onClick={close} aria-label={`Shopping cart, ${cartCount} items`}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 8H6" />
               <circle cx="10" cy="20" r="1" /><circle cx="18" cy="20" r="1" />
             </svg>
             <span className="nav-cart-count">{cartCount}</span>
-          </Link>
-          <Link className="nav-cta" href="/courses" onClick={close}>
-            Start learning <span>↗</span>
           </Link>
         </nav>
       </div>
