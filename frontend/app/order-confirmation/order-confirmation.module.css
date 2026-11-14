@@ -1,0 +1,555 @@
+/* Order Confirmation — same design system as Forgot Password / Islamic Shop pages */
+
+.page {
+  --green: #083326;
+  --green-hover: #05241b;
+  --gold: #c59b27;
+  --cream: #fcfbf7;
+  min-height: 100vh;
+  background: var(--cream);
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Hero (same as forgot-password hero) ——— */
+.hero {
+  position: relative;
+  min-height: var(--page-hero-min-height);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #083326;
+  background-image:
+    linear-gradient(90deg, #083326 0%, rgba(8, 51, 38, 0.92) 42%, rgba(8, 51, 38, 0.3) 100%),
+    url("https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1900&q=90");
+  background-position: center;
+  background-size: cover;
+}
+.heroInner {
+  max-width: var(--page-hero-max);
+  width: 100%;
+  min-height: var(--page-hero-min-height);
+  margin: 0 auto;
+  padding: var(--page-hero-pad-y) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: #f4f1e8;
+}
+.breadcrumb a:hover { color: #e8ce86; }
+.breadcrumb span:last-child { font-weight: var(--weight-semibold); }
+.heroTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.heroIcon { width: 22px; height: 22px; }
+.hero h1 {
+  margin: 0 0 4px;
+  font: var(--weight-bold) var(--text-3xl) / var(--leading-tight) var(--serif);
+  letter-spacing: var(--tracking-tight);
+  color: #fff;
+}
+.hero h1 em {
+  color: var(--gold);
+  font-style: normal;
+}
+.heroCopy {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: #f1f4ed;
+}
+
+/* ——— Progress steps ——— */
+.steps {
+  background: #fff;
+  border-bottom: 1px solid #e8e2d8;
+}
+.stepsInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.stepIconWrap {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid #b9d6c3;
+  background: #fff;
+  color: #188245;
+  display: grid;
+  place-items: center;
+}
+.stepIconWrap svg { width: 19px; height: 19px; }
+.stepCheck {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #188245;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+}
+.stepCheckIcon { width: 9px; height: 9px; stroke-width: 3; }
+.stepLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: #374151;
+}
+.stepLine {
+  flex: 1;
+  min-width: 30px;
+  height: 2px;
+  border-radius: 2px;
+  background: #cfe3d6;
+}
+.stepActive .stepIconWrap {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: linear-gradient(135deg, #0a4534, #083326);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(8, 51, 38, 0.3);
+}
+.stepActive .stepIconWrap svg { width: 22px; height: 22px; }
+.stepActive .stepLabel {
+  color: #083326;
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+}
+
+/* ——— Main layout ——— */
+.main {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 26px var(--gutter) 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Thank you banner */
+.thankCard {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  border: 1px solid #d8ead9;
+  background: linear-gradient(105deg, #eaf5ee, #f4faf5 60%, #f1f8f2);
+}
+.thankSeal {
+  width: 86px;
+  height: 86px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a4534, #083326);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 0 0 8px rgba(24, 130, 69, 0.12),
+    0 10px 24px rgba(8, 51, 38, 0.25);
+}
+.thankCheck { width: 40px; height: 40px; stroke-width: 2.6; }
+.thankText {
+  border-left: 1px solid #cfe3d6;
+  padding-left: 22px;
+  min-width: 0;
+}
+.thankText h2 {
+  margin: 0 0 4px;
+  font: var(--weight-bold) 30px/1.15 var(--serif);
+  color: #083326;
+}
+.thankText p {
+  margin: 0 0 6px;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: #4b5563;
+}
+.thankText strong { color: #113b2c; }
+
+/* Order info bar */
+.infoBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border: 1px solid #e8e2d8;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.infoCell {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border-right: 1px solid #efece3;
+}
+.infoCell:last-child { border-right: 0; }
+.infoIcon {
+  color: #083326;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.infoIcon svg { width: 20px; height: 20px; }
+.infoCell small {
+  display: block;
+  font-size: 11.5px;
+  color: #6b7280;
+  margin-bottom: 3px;
+}
+.infoCell strong {
+  font-size: 13px;
+  color: #111827;
+  line-height: 1.35;
+}
+
+/* Delivery + Billing cards */
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.infoCard {
+  background: #fff;
+  border: 1px solid #e8e2d8;
+  border-radius: 12px;
+  padding: 18px 20px;
+  min-width: 0;
+}
+.infoCardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.infoCardIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(8, 51, 38, 0.08);
+  color: #083326;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.infoCardIcon svg { width: 17px; height: 17px; }
+.infoCardHead h3 {
+  margin: 0;
+  font: var(--weight-bold) 16px/1.2 var(--serif);
+  color: #083326;
+}
+.addressName {
+  margin: 0 0 4px;
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: #111827;
+}
+.addressLines {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4b5563;
+}
+.addressPhone {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: var(--weight-semibold);
+  color: #113b2c;
+}
+.phoneIcon { width: 15px; height: 15px; color: #083326; }
+.billingRow {
+  display: flex;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 13.5px;
+  align-items: baseline;
+}
+.billingRow strong {
+  min-width: 108px;
+  color: #111827;
+  flex-shrink: 0;
+}
+.billingRow span { color: #4b5563; }
+
+/* Action buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.trackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  background: #083326;
+  color: #fff;
+  font: var(--weight-semibold) 14px/1 var(--sans);
+  box-shadow: 0 4px 12px rgba(8, 51, 38, 0.28);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.trackBtn:hover {
+  background: #05241b;
+  transform: translateY(-1px);
+}
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1.5px solid #b9d6c3;
+  background: #fff;
+  color: #113b2c;
+  font: var(--weight-semibold) 14px/1 var(--sans);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.outlineBtn:hover {
+  border-color: #083326;
+  background: #f3f8f4;
+  color: #083326;
+}
+.actionIcon { width: 17px; height: 17px; }
+
+/* ——— Order summary ——— */
+.summary {
+  background: #fff;
+  border: 1px solid #e8e2d8;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(8, 51, 38, 0.06);
+}
+.summaryHead {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 18px;
+  background: linear-gradient(100deg, #083326, #0a4534);
+  color: #fff;
+}
+.summaryHeadIcon { width: 20px; height: 20px; }
+.summaryHead h3 {
+  margin: 0;
+  font: var(--weight-bold) 18px/1.2 var(--serif);
+}
+.summaryItems {
+  padding: 6px 18px;
+}
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f0ede4;
+}
+.summaryThumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+  border: 1px solid #eee8dc;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #f5f1e6;
+}
+.summaryThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.summaryItemInfo {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.summaryItemInfo strong {
+  font-size: 13.5px;
+  color: #111827;
+  line-height: 1.3;
+}
+.summaryItemInfo span {
+  font-size: 12px;
+  color: #6b7280;
+}
+.summaryPrice {
+  font-size: 14px;
+  color: #111827;
+  white-space: nowrap;
+}
+.summaryTotals {
+  padding: 14px 18px 18px;
+}
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: var(--text-base);
+  color: #374151;
+}
+.totalRow strong {
+  font-size: 14px;
+  color: #111827;
+}
+.grandTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(105deg, #eaf5ee, #f2f9f3);
+  border: 1px solid #d8ead9;
+}
+.grandTotal span {
+  font: var(--weight-bold) 18px/1.2 var(--serif);
+  color: #083326;
+}
+.grandTotal strong {
+  font: var(--weight-bold) 22px/1.1 var(--serif);
+  color: #083326;
+}
+
+/* ——— Feature badges strip (same as other pages) ——— */
+.benefits {
+  margin-top: auto;
+  background: #faf7ef;
+  border-color: #eee8d9;
+  border-style: solid;
+  border-width: 1px 0;
+}
+.benefitsInner {
+  max-width: 1450px;
+  margin: auto;
+  padding: 24px 40px;
+}
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.benefitItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 8px;
+  border-right: 1px solid #e5dfd2;
+}
+.benefitItem:last-child { border-right: 0; }
+.benefitIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #083326;
+  background: rgba(8, 51, 38, 0.1);
+}
+.benefitIcon svg {
+  width: 20px;
+  height: 20px;
+}
+.benefitItem h3 {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: #111827;
+  line-height: var(--leading-snug);
+}
+.benefitItem p {
+  margin: 4px 0 0;
+  font-size: var(--text-xs);
+  color: #6b7280;
+  line-height: var(--leading-snug);
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 1050px) {
+  .main { grid-template-columns: 1fr; }
+  .infoBar { grid-template-columns: repeat(2, 1fr); }
+  .infoCell:nth-child(2n) { border-right: 0; }
+  .infoCell:nth-child(-n + 2) { border-bottom: 1px solid #efece3; }
+}
+
+@media (max-width: 680px) {
+  .heroTitleRow { gap: 12px; }
+  .iconBox { width: 42px; height: 42px; }
+  .stepsInner { flex-wrap: wrap; justify-content: center; row-gap: 12px; }
+  .stepLine { display: none; }
+  .step { flex-direction: column; text-align: center; gap: 7px; }
+  .stepLabel { font-size: 11.5px; }
+  .stepActive .stepLabel { font-size: 12.5px; }
+  .main { padding: 20px 16px 28px; }
+  .thankCard { flex-direction: column; text-align: center; padding: 24px 18px; gap: 14px; }
+  .thankText { border-left: 0; padding-left: 0; }
+  .thankText h2 { font-size: 25px; }
+  .infoBar { grid-template-columns: 1fr; }
+  .infoCell { border-right: 0 !important; border-bottom: 1px solid #efece3; }
+  .infoCell:last-child { border-bottom: 0; }
+  .addressGrid { grid-template-columns: 1fr; }
+  .actions { flex-direction: column; }
+  .trackBtn, .outlineBtn { width: 100%; justify-content: center; }
+  .benefitsInner { padding: 18px 20px; }
+  .benefitsGrid { grid-template-columns: 1fr; gap: 14px; }
+  .benefitItem { border-right: 0; justify-content: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trackBtn,
+  .outlineBtn {
+    transition: none;
+  }
+  .trackBtn:hover { transform: none; }
+}
