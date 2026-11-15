@@ -74,7 +74,10 @@ export function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© 2026 Ummat IT House. All rights reserved.</span>
-        <span>Privacy Policy &nbsp; | &nbsp; Terms of Service</span>
+        <span>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          &nbsp; | &nbsp; Terms of Service
+        </span>
         <span>Insha’Allah</span>
       </div>
     </footer>
