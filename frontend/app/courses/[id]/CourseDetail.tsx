@@ -276,7 +276,7 @@ export function CourseDetail({ course, related }: Props) {
             <span>✓</span> Enrollment: &nbsp;Open — Limited Seats
           </div>
           <p className={styles.feeNote}>One-time payment • Lifetime access to recordings</p>
-          <Link href="/contact" className={styles.addButton}>🛒 &nbsp; Enroll Now &nbsp;→</Link>
+          <Link href={`/enrollment?id=${course.id}`} className={styles.addButton}>🛒 &nbsp; Enroll Now &nbsp;→</Link>
           <button
             type="button"
             className={`${styles.wishButton} ${inWishlist ? styles.wished : ""}`}
