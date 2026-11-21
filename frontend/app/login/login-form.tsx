@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import styles from "./login.module.css";
 
 export default function LoginForm() {
@@ -27,7 +28,7 @@ export default function LoginForm() {
     <form className={styles.form} onSubmit={submit} noValidate>
       <label className={styles.field}>Email Address<span className={styles.input}><span aria-hidden="true">✉</span><input type="email" name="email" autoComplete="email" placeholder="Enter your email address" required/></span></label>
       <label className={styles.field}>Password<span className={styles.input}><span aria-hidden="true">♙</span><input type={visible ? "text" : "password"} name="password" autoComplete="current-password" placeholder="Enter your password" required/><button className={styles.eye} type="button" aria-label={visible ? "Hide password" : "Show password"} aria-pressed={visible} onClick={()=>setVisible(!visible)}>◉</button></span></label>
-      <div className={styles.options}><label><input type="checkbox" defaultChecked/> Remember Me</label><a href="mailto:support@ummatithouse.com?subject=Password%20reset">Forgot Password?</a></div>
+      <div className={styles.options}><label><input type="checkbox" defaultChecked/> Remember Me</label><Link href="/forgot-password">Forgot Password?</Link></div>
       <button className={styles.submit} type="submit"><span aria-hidden="true">↪</span> Sign In</button>
       <p className={styles.status} role="status" aria-live="polite">{status}</p>
       <div className={styles.divider}><i/>Or Sign In With<i/></div>

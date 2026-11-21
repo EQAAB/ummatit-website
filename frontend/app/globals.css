@@ -887,6 +887,58 @@ main { overflow-x: clip; }
   .footer-brand-block { grid-column: 1 / -1; }
 }
 
+/* Tablet: collapse the nav into the mobile menu (avoids wrapped/cramped links) */
+@media (max-width: 1023px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    padding: 12px 20px 20px;
+    background: #fffefa;
+    box-shadow: 0 8px 14px #0002;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    font-size: var(--text-base);
+  }
+  .nav-links.nav-open { display: flex; }
+  .nav-links a {
+    padding: 12px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-links .nav-cart { width: 44px; height: 44px; margin: 4px 0; }
+  .nav-links .nav-cart-count { top: 0; right: 0; }
+  .nav-links .nav-cta {
+    text-align: center;
+    margin-top: 8px;
+    justify-content: center;
+  }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    color: var(--green);
+    padding: 10px;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+}
+
 /* Narrow tablet: stack category cards, remove hero overlap */
 @media (max-width: 900px) {
   .hero {

@@ -42,6 +42,7 @@ export function Footer() {
           <Link href="/islamic-shop">Islamic Shop</Link>
           <Link href="/about">About Us</Link>
           <Link href="/contact">Contact Us</Link>
+          <Link href="/faqs">FAQs</Link>
           <Link href="/forgot-password">Forgot Password</Link>
         </div>
         <div className="footer-col">

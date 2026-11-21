@@ -454,8 +454,8 @@ export default function IslamicShopPage() {
           <p className={styles.cartBarText}>
             <strong>{cart.length}</strong> item{cart.length > 1 ? "s" : ""} in your cart
           </p>
-          <Link href="/order-confirmation" className={styles.cartBarBtn}>
-            Checkout <span aria-hidden="true">→</span>
+          <Link href="/shopping-cart" className={styles.cartBarBtn}>
+            View Cart <span aria-hidden="true">→</span>
           </Link>
         </div>
       )}
